@@ -1,0 +1,356 @@
+---
+interface PhotoItem {
+  id: string;
+  src: string;
+  alt: string;
+  label: string;
+  sublabel: string;
+  unit: string;
+  href: string;
+}
+
+const photoItems: PhotoItem[] = [
+  {
+    id: 'beton',
+    src: '/images/foto-beton-readymix.jpg',
+    alt: 'Mixer truck menuang beton ready mix di lokasi proyek Jabodetabek',
+    label: 'Beton Ready Mix',
+    sublabel: 'Mutu K-300 / K-350',
+    unit: 'Niaga Beton',
+    href: '/niaga-beton'
+  },
+  {
+    id: 'baja',
+    src: '/images/foto-baja-rebar.jpg',
+    alt: 'Truk pengangkut baja tulangan ulir SNI BjTS 420B di koridor Cikarang',
+    label: 'Baja Tulangan SNI',
+    sublabel: 'BjTS 420B Full',
+    unit: 'Niaga Baja',
+    href: '/niaga-baja'
+  },
+  {
+    id: 'aspal',
+    src: '/images/foto-aspal-hotmix.jpg',
+    alt: 'Tandem roller meratakan aspal hotmix AC-WC proyek jalan Tangerang',
+    label: 'Aspal Hotmix',
+    sublabel: 'AC-WC & AC-BC',
+    unit: 'Niaga Aspal',
+    href: '/niaga-aspal'
+  },
+  {
+    id: 'batuan',
+    src: '/images/foto-batuan-agregat.jpg',
+    alt: 'Pasir dan batu split cor kuari bebas lumpur',
+    label: 'Pasir & Batu Split',
+    sublabel: 'Kadar Lumpur < 5%',
+    unit: 'Niaga Batuan',
+    href: '/niaga-batuan'
+  },
+  {
+    id: 'slump',
+    src: '/images/foto-uji-slump.jpg',
+    alt: 'Inspeksi QC Slump Test beton ready mix di lokasi pengecoran',
+    label: 'Uji Slump Cor',
+    sublabel: 'QC Toleransi 12±2cm',
+    unit: 'Uji Mutu Lapangan',
+    href: '/niaga-beton'
+  },
+  {
+    id: 'uditch',
+    src: '/images/foto-precast-uditch.jpg',
+    alt: 'Pemasangan saluran precast U-Ditch beton dengan excavator di pinggir jalan',
+    label: 'Precast U-Ditch',
+    sublabel: 'Saluran Drainase SNI',
+    unit: 'Niaga Beton',
+    href: '/niaga-beton'
+  }
+];
+
+// 3 set duplikasi foto untuk infinite continuous seamless glide tanpa batas
+const displayPhotos = [...photoItems, ...photoItems, ...photoItems];
+---
+
+<section class="w-full pt-4 pb-10 overflow-hidden select-none" aria-label="Galeri Dokumentasi Proyek">
+  <!-- Outer Wrapper dengan Cinema Edge Vignette (Gradient Fade) -->
+  <div class="relative w-full overflow-hidden">
+    <!-- Fade Kiri & Kanan Lembut -->
+    <div class="absolute left-0 inset-y-0 w-12 sm:w-28 bg-gradient-to-r from-surface via-surface/80 to-transparent z-20 pointer-events-none"></div>
+    <div class="absolute right-0 inset-y-0 w-12 sm:w-28 bg-gradient-to-l from-surface via-surface/80 to-transparent z-20 pointer-events-none"></div>
+
+    <!-- Scroll Viewport Container -->
+    <div 
+      id="carousel-viewport" 
+      class="carousel-container flex gap-4 sm:gap-6 overflow-x-auto py-4 px-4 sm:px-8 cursor-grab active:cursor-grabbing no-scrollbar"
+      style="scroll-behavior: auto; -webkit-overflow-scrolling: touch;"
+    >
+      {displayPhotos.map((photo, idx) => (
+        <a 
+          href={photo.href}
+          draggable="false"
+          data-index={idx % photoItems.length}
+          class="carousel-card relative w-[280px] sm:w-[320px] md:w-[360px] aspect-[4/5] rounded-[14px] overflow-hidden border border-border-base bg-surface-soft shrink-0 group/card block hover:border-[#12A150] hover:shadow-2xl transition-all duration-500 ease-out transform-gpu hover:-translate-y-2 hover:scale-[1.015]"
+        >
+          <!-- Image Layer with Smooth Zoom on Hover -->
+          <img 
+            src={photo.src} 
+            alt={photo.alt} 
+            loading="lazy" 
+            draggable="false"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-110 pointer-events-none"
+          />
+
+          <!-- Gradient Ambient Shade -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 transition-opacity duration-300 pointer-events-none"></div>
+
+          <!-- Top Badge: Unit Bisnis & Action Hint -->
+          <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 pointer-events-none z-10">
+            <span class="bg-white/95 backdrop-blur-md text-[11px] font-mono font-bold text-[#0A4D2E] px-2.5 py-1 rounded-[6px] border border-[#12A150]/20 shadow-sm">
+              {photo.unit}
+            </span>
+            <span class="bg-[#FFC700] text-slate-900 text-[10px] font-mono font-black px-2 py-1 rounded-[6px] shadow-sm opacity-0 group-hover/card:opacity-100 transition-all duration-300 transform group-hover/card:translate-x-0 -translate-x-1">
+              Buka Katalog &rarr;
+            </span>
+          </div>
+
+          <!-- Bottom Caption Card (Sleek Singkat Default, Sub Judul Muncul Hanya Saat Hover) -->
+          <div class="absolute bottom-3.5 inset-x-3.5 pointer-events-none z-10">
+            <div class="bg-white/95 backdrop-blur-md border border-slate-200/90 py-2.5 px-3.5 rounded-[10px] shadow-lg flex items-center justify-between gap-3 transition-all duration-300 group-hover/card:border-[#12A150]/50 group-hover/card:shadow-xl group-hover/card:py-3">
+              <div class="min-w-0 flex-1">
+                <h4 class="text-xs sm:text-sm font-black text-slate-900 truncate group-hover/card:text-[#12A150] transition-colors">
+                  {photo.label}
+                </h4>
+                <!-- Sub judul tersembunyi secara default, muncul halus saat kursor diarahkan (hover) -->
+                <p class="text-[10px] sm:text-[11px] font-mono text-slate-600 truncate max-h-0 opacity-0 overflow-hidden group-hover/card:max-h-6 group-hover/card:opacity-100 group-hover/card:mt-0.5 transition-all duration-300 ease-out">
+                  {photo.sublabel}
+                </p>
+              </div>
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#E5F6E8] text-[#0A4D2E] shrink-0 flex items-center justify-center text-xs font-bold font-mono shadow-2xs group-hover/card:bg-[#12A150] group-hover/card:text-white transition-all duration-300 group-hover/card:scale-105">
+                <svg class="w-4 h-4 transition-transform group-hover/card:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Bottom Control Bar (Tombol Kiri-Kanan Dipindahkan ke Bawah + Indikator Elegan) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 flex items-center justify-center gap-5">
+    <!-- Tombol Kiri -->
+    <button 
+      type="button" 
+      id="btn-carousel-prev" 
+      aria-label="Geser Foto ke Kiri"
+      class="group w-11 h-11 rounded-full border border-border-base bg-surface hover:bg-surface-soft active:scale-95 text-ink flex items-center justify-center transition-all duration-200 shadow-sm hover:border-[#12A150] hover:text-[#12A150] hover:shadow-md cursor-pointer"
+    >
+      <svg class="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Indikator Pill Mini Elegan -->
+    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-soft border border-border-base" id="carousel-indicators">
+      {photoItems.map((_, i) => (
+        <button
+          type="button"
+          data-pill-index={i}
+          aria-label={`Lihat foto ${i + 1}`}
+          class={`carousel-pill h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+            i === 0 ? 'w-6 bg-[#12A150]' : 'w-2 bg-border-base hover:bg-ink/40'
+          }`}
+        />
+      ))}
+    </div>
+
+    <!-- Tombol Kanan -->
+    <button 
+      type="button" 
+      id="btn-carousel-next" 
+      aria-label="Geser Foto ke Kanan"
+      class="group w-11 h-11 rounded-full border border-border-base bg-surface hover:bg-surface-soft active:scale-95 text-ink flex items-center justify-center transition-all duration-200 shadow-sm hover:border-[#12A150] hover:text-[#12A150] hover:shadow-md cursor-pointer"
+    >
+      <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  /* Sembunyikan scrollbar bawaan agar tampilan tetap rapi */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const viewport = document.getElementById('carousel-viewport') as HTMLElement | null;
+    const btnPrev = document.getElementById('btn-carousel-prev');
+    const btnNext = document.getElementById('btn-carousel-next');
+    const indicatorPills = document.querySelectorAll('.carousel-pill');
+
+    if (!viewport) return;
+
+    const totalUniquePhotos = 6;
+    let cardWidthWithGap = 340; // Default estimasi lebar per kartu + gap
+    
+    // Perbarui perhitungan dimensi dinamis kartu
+    const updateCardMetrics = () => {
+      const firstCard = viewport.querySelector('.carousel-card') as HTMLElement | null;
+      if (firstCard) {
+        const style = window.getComputedStyle(viewport);
+        const gap = parseFloat(style.columnGap || style.gap || '20') || 20;
+        cardWidthWithGap = firstCard.offsetWidth + gap;
+      }
+    };
+    updateCardMetrics();
+    window.addEventListener('resize', updateCardMetrics);
+
+    // Set scroll awal di set tengah (set ke-2 dari 3 set duplikasi) agar bisa scroll mulus ke kiri maupun kanan
+    const singleSetWidth = cardWidthWithGap * totalUniquePhotos;
+    viewport.scrollLeft = singleSetWidth;
+
+    // Variabel animasi pergerakan kontinu (elegan & dinamis)
+    let isHovered = false;
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let resumeTimeout: NodeJS.Timeout | null = null;
+    
+    // Kecepatan drift otomatis: 0.75 pixel per frame (~45px per detik, ritme mewah & tidak terburu-buru)
+    const driftSpeed = 0.75; 
+    let animationFrameId: number;
+
+    const stepAnimation = () => {
+      if (!isHovered && !isDragging) {
+        viewport.scrollLeft += driftSpeed;
+
+        // Infinite wrap check (seamless loop di set ke-2)
+        if (viewport.scrollLeft >= singleSetWidth * 2) {
+          viewport.scrollLeft -= singleSetWidth;
+        } else if (viewport.scrollLeft <= 0) {
+          viewport.scrollLeft += singleSetWidth;
+        }
+      }
+
+      updateActivePill();
+      animationFrameId = requestAnimationFrame(stepAnimation);
+    };
+
+    animationFrameId = requestAnimationFrame(stepAnimation);
+
+    // Update indikator aktif berdasarkan posisi scroll saat ini
+    const updateActivePill = () => {
+      if (!indicatorPills.length) return;
+      const normalizedScroll = (viewport.scrollLeft % singleSetWidth + singleSetWidth) % singleSetWidth;
+      const activeIdx = Math.round(normalizedScroll / cardWidthWithGap) % totalUniquePhotos;
+
+      indicatorPills.forEach((pill, i) => {
+        if (i === activeIdx) {
+          pill.classList.remove('w-2', 'bg-border-base');
+          pill.classList.add('w-6', 'bg-[#12A150]');
+        } else {
+          pill.classList.remove('w-6', 'bg-[#12A150]');
+          pill.classList.add('w-2', 'bg-border-base');
+        }
+      });
+    };
+
+    // Hover Handler: jeda perlahan saat pengguna ingin mengamati atau berinteraksi
+    viewport.addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
+
+    viewport.addEventListener('mouseleave', () => {
+      if (!isDragging) {
+        isHovered = false;
+      }
+    });
+
+    // Touch / Mouse Dragging untuk interaktivitas dinamis
+    viewport.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX - viewport.offsetLeft;
+      startScrollLeft = viewport.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        // Tunggu sebentar sebelum melanjutkan auto-drift agar user tidak terganggu
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+          isHovered = false;
+        }, 1200);
+      }
+    });
+
+    viewport.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - viewport.offsetLeft;
+      const walk = (x - startX) * 1.4; // Responsifitas drag
+      viewport.scrollLeft = startScrollLeft - walk;
+
+      // Handle wrap during drag
+      if (viewport.scrollLeft >= singleSetWidth * 2) {
+        viewport.scrollLeft -= singleSetWidth;
+        startScrollLeft -= singleSetWidth;
+      } else if (viewport.scrollLeft <= 0) {
+        viewport.scrollLeft += singleSetWidth;
+        startScrollLeft += singleSetWidth;
+      }
+    });
+
+    // Tombol Navigasi Manual Bawah
+    const smoothStep = (direction: 'next' | 'prev') => {
+      isHovered = true;
+      updateCardMetrics();
+      const distance = cardWidthWithGap;
+      const targetScroll = direction === 'next' 
+        ? viewport.scrollLeft + distance 
+        : viewport.scrollLeft - distance;
+
+      viewport.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
+
+      if (resumeTimeout) clearTimeout(resumeTimeout);
+      resumeTimeout = setTimeout(() => {
+        isHovered = false;
+      }, 3500);
+    };
+
+    btnPrev?.addEventListener('click', () => smoothStep('prev'));
+    btnNext?.addEventListener('click', () => smoothStep('next'));
+
+    // Klik Indikator Pill untuk langsung menuju foto tertentu
+    indicatorPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const targetIdx = parseInt(pill.getAttribute('data-pill-index') || '0', 10);
+        isHovered = true;
+        updateCardMetrics();
+        const baseSetScroll = singleSetWidth;
+        const targetPos = baseSetScroll + (targetIdx * cardWidthWithGap);
+
+        viewport.scrollTo({
+          left: targetPos,
+          behavior: 'smooth'
+        });
+
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+          isHovered = false;
+        }, 3500);
+      });
+    });
+  });
+</script>

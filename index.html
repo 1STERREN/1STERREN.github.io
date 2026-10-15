@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV. Serba Niaga Jaya | Supplier Material Konstruksi Terpadu</title>
+  <meta name="description" content="Penyedia material konstruksi dan infrastruktur terpadu: Beton, Baja, Aspal, dan Agregat Batuan standar SNI & Bina Marga di wilayah Jabodetabek, Cikarang, dan Karawang.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface': 'var(--color-surface)',
+            'surface-soft': 'var(--color-surface-soft)',
+            'green-dark': 'var(--color-green-dark)',
+            'green-primary': 'var(--color-green-primary)',
+            'green-light': 'var(--color-green-light)',
+            'yellow-safety': 'var(--color-yellow-safety)',
+            'yellow-dark': 'var(--color-yellow-dark)',
+            'yellow-light': 'var(--color-yellow-light)',
+            'ink': 'var(--color-ink)',
+            'border-base': 'var(--color-border)',
+            'panel-feature': 'var(--color-panel-feature)',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* CSS Variables: Palet Presisi Baru (Teks Hitam #111111, Kuning #FFC700, Hijau Rimba #0F7B3F) */
+    :root {
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #F3F8EE;     /* Hijau pucat latar seksi selang-seling */
+      --color-green-dark: #0F7B3F;      /* Hijau Rimba untuk panel & lencana */
+      --color-green-primary: #12A150;   /* Hijau Segar untuk tautan, ikon, border hover */
+      --color-green-light: #E5F6E8;     /* Hijau Muda untuk chip kode & banner penutup */
+      --color-yellow-safety: #FFC700;   /* Kuning Hangat & Terang untuk tombol aksi & nomor langkah */
+      --color-yellow-dark: #E5B300;     /* Hover tombol kuning */
+      --color-yellow-light: #FFF7CC;    /* Latar catatan teknis */
+      --color-ink: #111111;             /* Teks Hitam Tegas untuk SEMUA judul & teks isi */
+      --color-border: #DDE8D9;          /* Border 1px presisi */
+      --color-panel-feature: #0F7B3F;   /* Panel Presisi Spesifikasi (Hijau Rimba) */
+
+      --dur-instant: 100ms;
+      --dur-fast: 150ms;
+      --dur-base: 220ms;
+      --dur-slow: 450ms;
+      --ease-out-spec: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out-spec: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    body {
+      background-color: var(--color-surface);
+      color: var(--color-ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--dur-base), color var(--dur-base);
+    }
+
+    /* Motion token utilities */
+    .spec-chip {
+      font-family: 'JetBrains Mono', monospace;
+      transition: all var(--dur-fast) var(--ease-out-spec);
+    }
+    .spec-chip:hover {
+      border-color: var(--color-green-primary);
+      background-color: var(--color-green-light);
+    }
+
+    .industrial-card {
+      transition: border-color var(--dur-fast), transform var(--dur-fast);
+    }
+    .industrial-card:hover {
+      border-color: var(--color-green-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Section title yellow accent line */
+    .section-title-line {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 48px;
+      height: 4px;
+      background-color: var(--color-yellow-safety);
+      border-radius: 2px;
+      transition: width var(--dur-base) var(--ease-out-spec);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-surface text-ink pb-24 md:pb-0 selection:bg-yellow-light selection:text-[#111111]">
+
+  <!-- Top Scroll Reading Progress Bar (3px Kuning Safety) -->
+  <div id="scroll-progress-bar" class="fixed top-0 left-0 right-0 h-[3px] bg-[#FFC700] z-50 transform scale-x-0 origin-left transition-transform duration-75"></div>
+
+  <!-- Global Header -->
+  <header id="site-header" class="sticky top-0 z-40 bg-surface border-b border-border-base transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" id="header-container">
+      
+      <!-- Logo Resmi SNJ -->
+      <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-yellow-safety rounded">
+        <img src="logo.png" alt="CV. Serba Niaga Jaya" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.02]">
+      </a>
+
+      <!-- Desktop Navigasi -->
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#kategori" class="text-sm font-semibold text-[#111111] hover:text-green-primary py-2 relative border-b-2 border-yellow-safety">Katalog Produk</a>
+        <a href="#cara-pesan" class="text-sm font-medium text-ink hover:text-green-primary transition-colors">Cara Pemesanan</a>
+        <a href="#spesifikasi" class="text-sm font-medium text-ink hover:text-green-primary transition-colors">Standar Mutu</a>
+        <a href="#faq" class="text-sm font-medium text-ink hover:text-green-primary transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Desktop Action CTA & Theme Toggle -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Theme Toggle Button -->
+        <button 
+          type="button" 
+          id="theme-toggle" 
+          aria-label="Ganti Mode Terang/Gelap" 
+          class="p-2.5 rounded-[6px] border border-border-base bg-surface-soft text-ink hover:border-green-primary transition-colors cursor-pointer"
+        >
+          <!-- Sun Icon (Tampil saat Dark) -->
+          <svg id="theme-icon-sun" class="w-4 h-4 hidden text-[#FFC700]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <!-- Moon Icon (Tampil saat Light) -->
+          <svg id="theme-icon-moon" class="w-4 h-4 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+
+        <!-- WhatsApp Header Button -->
+        <a 
+          href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20menanyakan%20ketersediaan%20dan%20penawaran%20harga%20material." 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFC700] hover:bg-yellow-dark text-[#111111] font-bold text-sm px-4 py-2.5 rounded-[6px] inline-flex items-center gap-2 transition-all duration-150 active:scale-98 shadow-sm"
+        >
+          <svg class="w-4 h-4 text-[#111111]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+          </svg>
+          <span>Tanya via WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger & Mobile Theme Toggle Button -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button 
+          type="button" 
+          id="theme-toggle-mobile" 
+          aria-label="Toggle Theme" 
+          class="p-2 rounded-[6px] border border-border-base bg-surface-soft text-ink"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </button>
+
+        <button 
+          type="button" 
+          id="mobile-menu-btn" 
+          aria-label="Buka Menu Navigasi"
+          class="p-2 rounded-[6px] border border-border-base text-[#111111]"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu (Slide Down) -->
+  <div id="mobile-drawer" class="fixed inset-x-0 top-20 bg-surface border-b border-border-base shadow-xl p-5 z-30 hidden md:hidden">
+    <div class="flex flex-col gap-4">
+      <a href="#kategori" class="text-sm font-bold text-[#111111] py-1">Katalog Empat Kategori</a>
+      <a href="#cara-pesan" class="text-sm font-semibold text-ink py-1">Cara Pemesanan</a>
+      <a href="#spesifikasi" class="text-sm font-semibold text-ink py-1">Panel Presisi Spesifikasi</a>
+      <a href="#artikel" class="text-sm font-semibold text-ink py-1">Panduan Teknis</a>
+      <a href="#faq" class="text-sm font-semibold text-ink py-1">Tanya Jawab (FAQ)</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- 01. HERO TERPUSAT (Center Hero Layout) -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 text-center">
+      <!-- Lencana Wilayah Distribusi -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-[6px] bg-green-light border border-border-base text-xs font-semibold text-[#111111] mb-6">
+        <span class="w-2 h-2 rounded-full bg-green-primary"></span>
+        <span>Wilayah Distribusi: Jabodetabek, Cikarang & Karawang</span>
+      </div>
+
+      <!-- H1 Besar Terpusat -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#111111] tracking-tight leading-[1.15] mb-6">
+        Material konstruksi lengkap, satu pintu.
+      </h1>
+
+      <!-- Subjudul Satu Kalimat -->
+      <p class="text-base sm:text-lg text-ink leading-relaxed max-w-2xl mx-auto mb-8 opacity-90">
+        Penyedia terpercaya beton ready-mix, baja tulangan bersertifikat, aspal hotmix, dan agregat batuan standar SNI untuk kelancaran proyek Anda.
+      </p>
+
+      <!-- Dua Tombol Aksi Utama -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+        <a 
+          href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20konsultasi%20pengadaan%20material." 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFC700] hover:bg-yellow-dark text-[#111111] font-bold text-sm sm:text-base px-6 py-3.5 rounded-[6px] inline-flex items-center gap-2 shadow-sm transition-all duration-150 active:scale-98"
+        >
+          <span>Konsultasi via WhatsApp</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <a 
+          href="#kategori" 
+          class="bg-surface hover:bg-green-light text-[#111111] border border-green-primary font-semibold text-sm sm:text-base px-6 py-3.5 rounded-[6px] inline-flex items-center gap-2 transition-colors duration-150"
+        >
+          <span>Lihat Katalog Spesifikasi</span>
+        </a>
+      </div>
+
+      <!-- Chip Kode Mutu di Bawah Tombol -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 text-xs">
+        <span class="text-gray-500 font-mono">STANDAR MUTU:</span>
+        <button type="button" class="spec-chip px-2.5 py-1 rounded bg-green-light border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('K-300')">K-300</button>
+        <button type="button" class="spec-chip px-2.5 py-1 rounded bg-green-light border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('TS 420')">TS 420</button>
+        <button type="button" class="spec-chip px-2.5 py-1 rounded bg-green-light border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('AC-WC')">AC-WC</button>
+        <button type="button" class="spec-chip px-2.5 py-1 rounded bg-green-light border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('Split 1/2')">Split 1/2</button>
+      </div>
+    </section>
+
+    <!-- 02. STRIP FOTO LEBAR PENUH (5 Slot 3:4 dengan Lencana Material) -->
+    <section class="w-full overflow-x-auto pb-4 pt-2 no-scrollbar">
+      <div class="flex gap-4 px-4 sm:px-6 min-w-[960px] max-w-[1400px] mx-auto justify-between">
+        
+        <!-- Slot Foto 1: Beton -->
+        <div class="flex-1 aspect-[3/4] rounded-[8px] border border-border-base bg-surface-soft relative overflow-hidden flex flex-col items-center justify-center p-4 text-center group">
+          <svg class="w-8 h-8 text-green-primary mb-2 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+          <span class="text-xs font-semibold text-[#111111]">Foto dokumentasi menyusul</span>
+          <div class="absolute bottom-3 inset-x-3 bg-surface/90 border border-border-base py-1 px-2 rounded text-[11px] font-bold text-[#111111]">
+            Beton siap pakai
+          </div>
+        </div>
+
+        <!-- Slot Foto 2: Baja -->
+        <div class="flex-1 aspect-[3/4] rounded-[8px] border border-border-base bg-surface-soft relative overflow-hidden flex flex-col items-center justify-center p-4 text-center group">
+          <svg class="w-8 h-8 text-green-primary mb-2 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+          <span class="text-xs font-semibold text-[#111111]">Foto dokumentasi menyusul</span>
+          <div class="absolute bottom-3 inset-x-3 bg-surface/90 border border-border-base py-1 px-2 rounded text-[11px] font-bold text-[#111111]">
+            Baja ulir SNI
+          </div>
+        </div>
+
+        <!-- Slot Foto 3: Aspal -->
+        <div class="flex-1 aspect-[3/4] rounded-[8px] border border-border-base bg-surface-soft relative overflow-hidden flex flex-col items-center justify-center p-4 text-center group">
+          <svg class="w-8 h-8 text-green-primary mb-2 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+          <span class="text-xs font-semibold text-[#111111]">Foto dokumentasi menyusul</span>
+          <div class="absolute bottom-3 inset-x-3 bg-surface/90 border border-border-base py-1 px-2 rounded text-[11px] font-bold text-[#111111]">
+            Hotmix jalan
+          </div>
+        </div>
+
+        <!-- Slot Foto 4: Batuan -->
+        <div class="flex-1 aspect-[3/4] rounded-[8px] border border-border-base bg-surface-soft relative overflow-hidden flex flex-col items-center justify-center p-4 text-center group">
+          <svg class="w-8 h-8 text-green-primary mb-2 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+          <span class="text-xs font-semibold text-[#111111]">Foto dokumentasi menyusul</span>
+          <div class="absolute bottom-3 inset-x-3 bg-surface/90 border border-border-base py-1 px-2 rounded text-[11px] font-bold text-[#111111]">
+            Pasir & split cor
+          </div>
+        </div>
+
+        <!-- Slot Foto 5: Lapangan -->
+        <div class="flex-1 aspect-[3/4] rounded-[8px] border border-border-base bg-surface-soft relative overflow-hidden flex flex-col items-center justify-center p-4 text-center group">
+          <svg class="w-8 h-8 text-green-primary mb-2 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+          <span class="text-xs font-semibold text-[#111111]">Foto dokumentasi menyusul</span>
+          <div class="absolute bottom-3 inset-x-3 bg-surface/90 border border-border-base py-1 px-2 rounded text-[11px] font-bold text-[#111111]">
+            Uji slump cor
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03. STRIP KOMITMEN EMPAT BUTIR (Tanpa Statistik Fiktif) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-y border-border-base my-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+        <div class="flex items-start gap-3">
+          <span class="text-green-primary font-bold text-base">✓</span>
+          <div>
+            <h4 class="text-xs font-bold text-[#111111] uppercase tracking-wider">Rujukan Standar SNI</h4>
+            <p class="text-xs text-ink opacity-80 mt-0.5">Spesifikasi teknis mengikuti uji laboratorium resmi.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-green-primary font-bold text-base">✓</span>
+          <div>
+            <h4 class="text-xs font-bold text-[#111111] uppercase tracking-wider">Jadwal Ritase Pasti</h4>
+            <p class="text-xs text-ink opacity-80 mt-0.5">Waktu pengiriman dikonfirmasi langsung per pesanan.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-green-primary font-bold text-base">✓</span>
+          <div>
+            <h4 class="text-xs font-bold text-[#111111] uppercase tracking-wider">Penawaran Tertulis</h4>
+            <p class="text-xs text-ink opacity-80 mt-0.5">Dokumen resmi BoQ/RAB diterbitkan via email resmi.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-green-primary font-bold text-base">✓</span>
+          <div>
+            <h4 class="text-xs font-bold text-[#111111] uppercase tracking-wider">Distribusi Terkoordinasi</h4>
+            <p class="text-xs text-ink opacity-80 mt-0.5">Melayani Jabodetabek, Cikarang, dan Karawang.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. EMPAT KATEGORI MATERIAL (Asimetris: 1 Kartu Unggulan Besar + 3 Kecil) -->
+    <section id="kategori" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="mb-8">
+        <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">01 &mdash; PASOKAN TERPADU</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111111] section-title-line">Empat Kategori Pengadaan</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Kartu Unggulan Besar: Beton (Kolom 6) -->
+        <div class="lg:col-span-6 border border-border-base rounded-[8px] bg-surface p-6 sm:p-8 flex flex-col justify-between industrial-card">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-black text-green-primary">01</span>
+              <span class="text-xs font-mono px-2 py-1 rounded bg-green-light text-[#111111] font-bold">SNI 2847 / PUPR</span>
+            </div>
+            
+            <!-- Slot Foto Kategori Beton (Rasio 16:9) -->
+            <div class="aspect-[16/9] rounded-[6px] border border-border-base bg-surface-soft flex items-center justify-center mb-6">
+              <span class="text-xs font-semibold text-[#111111]">Foto dokumentasi menyusul (Ready Mix & Precast)</span>
+            </div>
+
+            <h3 class="text-2xl font-extrabold text-[#111111] mb-2">Beton Ready Mix & Precast</h3>
+            <p class="text-sm text-ink opacity-85 leading-relaxed mb-6">
+              Penyediaan beton curah siap pakai untuk struktur gedung, rigid pavement jalan raya, serta saluran U-Ditch dan Box Culvert presisi tinggi.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              <button type="button" class="spec-chip text-xs px-2.5 py-1 rounded border border-border-base bg-surface-soft text-[#111111] font-mono font-semibold" onclick="copySpec('K-300 / f\'c 25')">K-300 (f'c 25)</button>
+              <button type="button" class="spec-chip text-xs px-2.5 py-1 rounded border border-border-base bg-surface-soft text-[#111111] font-mono font-semibold" onclick="copySpec('U-Ditch 40x40')">U-Ditch 40x40</button>
+              <button type="button" class="spec-chip text-xs px-2.5 py-1 rounded border border-border-base bg-surface-soft text-[#111111] font-mono font-semibold" onclick="copySpec('Box Culvert 100x100')">Box Culvert</button>
+            </div>
+          </div>
+
+          <a 
+            href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20menanyakan%20ketersediaan%20dan%20penawaran%20harga%20untuk%20produk%3A%20Beton%20Ready%20Mix." 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full text-center bg-[#FFC700] hover:bg-yellow-dark text-[#111111] font-bold text-sm py-3 rounded-[6px] inline-flex items-center justify-center gap-2 transition-all active:scale-98 shadow-sm"
+          >
+            <span>Lihat Spesifikasi & Pesan via WhatsApp</span>
+            <svg class="w-4 h-4 text-[#111111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+
+        <!-- 3 Kartu Lebih Kecil (Kolom 6) -->
+        <div class="lg:col-span-6 flex flex-col gap-5">
+          <!-- Kartu 2: Baja -->
+          <div class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-mono font-bold text-green-primary">02 &mdash; SNI 2052:2017</span>
+                <h4 class="text-lg font-bold text-[#111111] mt-0.5">Baja Tulangan & Profil</h4>
+                <p class="text-xs text-ink opacity-80 mt-1">Besi beton polos (TP 280) & ulir (TS 420), wiremesh M6–M10, WF dan H-Beam bersertifikat pabrik.</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-border-base">
+              <div class="flex gap-1.5">
+                <button type="button" class="spec-chip text-[11px] px-2 py-0.5 rounded bg-surface-soft border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('TS 420B Ulir')">TS 420B</button>
+                <button type="button" class="spec-chip text-[11px] px-2 py-0.5 rounded bg-surface-soft border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('Wiremesh M8')">M8</button>
+              </div>
+              <a href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20tanya%20baja%20tulangan." target="_blank" class="text-xs font-bold text-green-primary hover:underline">Tanya Baja &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Kartu 3: Aspal -->
+          <div class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-mono font-bold text-green-primary">03 &mdash; SPEK BINA MARGA DIV 6</span>
+                <h4 class="text-lg font-bold text-[#111111] mt-0.5">Aspal Hotmix & Bitumen</h4>
+                <p class="text-xs text-ink opacity-80 mt-1">Campuran aspal panas AC-WC, AC-BC, aspal penetrasi Pen 60/70, serta emulsi Prime Coat dan Tack Coat.</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-border-base">
+              <div class="flex gap-1.5">
+                <button type="button" class="spec-chip text-[11px] px-2 py-0.5 rounded bg-surface-soft border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('Hotmix AC-WC')">AC-WC</button>
+                <button type="button" class="spec-chip text-[11px] px-2 py-0.5 rounded bg-surface-soft border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('Pen 60/70')">Pen 60/70</button>
+              </div>
+              <a href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20tanya%20aspal%20hotmix." target="_blank" class="text-xs font-bold text-green-primary hover:underline">Tanya Aspal &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Kartu 4: Batuan -->
+          <div class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-mono font-bold text-green-primary">04 &mdash; ASTM C33 / SNI</span>
+                <h4 class="text-lg font-bold text-[#111111] mt-0.5">Agregat, Pasir & Batuan</h4>
+                <p class="text-xs text-ink opacity-80 mt-1">Pasir cor cuci bebas lumpur, batu split gradasi 1/2 dan 2/3 untuk struktur beton, serta batu kali belah pondasi.</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-border-base">
+              <div class="flex gap-1.5">
+                <button type="button" class="spec-chip text-[11px] px-2 py-0.5 rounded bg-surface-soft border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('Pasir Cor Cuci')">Pasir Cor</button>
+                <button type="button" class="spec-chip text-[11px] px-2 py-0.5 rounded bg-surface-soft border border-border-base text-[#111111] font-mono font-semibold" onclick="copySpec('Batu Split 1/2')">Split 1/2</button>
+              </div>
+              <a href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20tanya%20pasir%20dan%20split." target="_blank" class="text-xs font-bold text-green-primary hover:underline">Tanya Agregat &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. CARA PEMESANAN (Foto di Kiri Rasio 4:5 + 4 Langkah Bernomor di Kanan) -->
+    <section id="cara-pesan" class="bg-surface-soft border-y border-border-base py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Foto di Kiri (Rasio 4:5) -->
+          <div class="lg:col-span-5">
+            <div class="aspect-[4/5] rounded-[8px] border border-border-base bg-surface relative overflow-hidden flex flex-col items-center justify-center p-6 text-center">
+              <svg class="w-10 h-10 text-green-primary mb-3 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+              </svg>
+              <span class="text-sm font-semibold text-[#111111]">Foto koordinasi tim lapangan menyusul</span>
+              <p class="text-xs text-ink opacity-70 mt-1 max-w-xs">Pengaturan ritase armada terhubung langsung dengan mandor dan estimator proyek.</p>
+            </div>
+          </div>
+
+          <!-- 4 Langkah Bernomor di Kanan -->
+          <div class="lg:col-span-7 space-y-6">
+            <div>
+              <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">02 &mdash; ALUR KERJA</div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111111] section-title-line">Empat Langkah Pemesanan</h2>
+              <p class="text-sm text-ink opacity-80 mt-2">Tanpa form isian publik. Komunikasi berjalan terarah dan langsung.</p>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Langkah 1 -->
+              <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+                <span class="text-base font-mono font-extrabold text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300] font-bold">01</span>
+                <div>
+                  <h4 class="text-sm font-bold text-[#111111]">Tanya via WhatsApp</h4>
+                  <p class="text-xs text-ink opacity-80 mt-0.5">Sampaikan kebutuhan material, lokasi proyek di Jabodetabek/Karawang, dan estimasi waktu pengecoran atau instalasi.</p>
+                </div>
+              </div>
+
+              <!-- Langkah 2 -->
+              <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+                <span class="text-base font-mono font-extrabold text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300] font-bold">02</span>
+                <div>
+                  <h4 class="text-sm font-bold text-[#111111]">Konfirmasi Spesifikasi & Ritase</h4>
+                  <p class="text-xs text-ink opacity-80 mt-0.5">Tim teknis memverifikasi mutu beton, diameter baja, jadwal ketersediaan mixer/dump truck, dan akses jalan proyek.</p>
+                </div>
+              </div>
+
+              <!-- Langkah 3 -->
+              <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+                <span class="text-base font-mono font-extrabold text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300] font-bold">03</span>
+                <div>
+                  <h4 class="text-sm font-bold text-[#111111]">Penawaran Resmi via Email</h4>
+                  <p class="text-xs text-ink opacity-80 mt-0.5">Dokumen penawaran harga resmi (BoQ/RAB) diterbitkan melalui email resmi lengkap dengan syarat teknis terikat.</p>
+                </div>
+              </div>
+
+              <!-- Langkah 4 -->
+              <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+                <span class="text-base font-mono font-extrabold text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300] font-bold">04</span>
+                <div>
+                  <h4 class="text-sm font-bold text-[#111111]">Pengiriman Sesuai Jadwal</h4>
+                  <p class="text-xs text-ink opacity-80 mt-0.5">Armada diberangkatkan tepat waktu dari batching plant atau gudang distribusi terdekat sesuai jadwal ritase.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. PANEL PRESISI SPESIFIKASI (Panel Gelap #14532D / #1F3526 Tetap Gelap di Kedua Mode) -->
+    <section id="spesifikasi" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="rounded-[12px] bg-[#0F7B3F] dark:bg-[#1F3526] text-[#EEF3EC] p-6 sm:p-10 border border-[#0F7B3F]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Foto di Kiri (Rasio 4:5) -->
+          <div class="lg:col-span-5">
+            <div class="aspect-[4/5] rounded-[8px] border border-white/20 bg-black/20 flex flex-col items-center justify-center p-6 text-center">
+              <svg class="w-10 h-10 text-[#FFC700] mb-3 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+              <span class="text-xs font-semibold text-white">Foto pengujian mutu & sertifikat menyusul</span>
+              <p class="text-[11px] text-gray-300 mt-1">Uji kuat tekan beton silinder & uji tarik baja tulangan laboratorium.</p>
+            </div>
+          </div>
+
+          <!-- 3 Baris Berlabel di Kanan -->
+          <div class="lg:col-span-7 space-y-6">
+            <div>
+              <div class="text-xs font-mono font-bold text-[#FFC700] uppercase tracking-wider mb-1">03 &mdash; INTEGRITAS TEKNIS</div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Panel Presisi Spesifikasi</h2>
+              <p class="text-xs sm:text-sm text-gray-200 mt-2 leading-relaxed">
+                Kepatuhan mutlak terhadap parameter teknik yang disyaratkan oleh konsultan dan pengawas lapangan:
+              </p>
+            </div>
+
+            <div class="space-y-4 pt-2">
+              <!-- Baris 1: Mutu -->
+              <div class="border-b border-white/15 pb-3">
+                <span class="text-xs font-mono font-bold text-[#FFC700] uppercase block mb-1">Mutu</span>
+                <p class="text-xs sm:text-sm text-gray-100 leading-relaxed">
+                  Nomenklatur baku SNI dan PUPR: Kuat tekan beton kubus K-100 s.d K-500 atau konversi silinder f'c (MPa), baja BjTP 280 & BjTS 420B, serta aspal AC-WC / AC-BC.
+                </p>
+              </div>
+
+              <!-- Baris 2: Standar -->
+              <div class="border-b border-white/15 pb-3">
+                <span class="text-xs font-mono font-bold text-[#FFC700] uppercase block mb-1">Standar</span>
+                <p class="text-xs sm:text-sm text-gray-100 leading-relaxed">
+                  Rujukan resmi SNI 2847, SNI 2052:2017, dan Spesifikasi Umum Bina Marga Divisi 6 (Perkerasan Aspal).
+                </p>
+              </div>
+
+              <!-- Baris 3: Dokumen -->
+              <div>
+                <span class="text-xs font-mono font-bold text-[#FFC700] uppercase block mb-1">Dokumen</span>
+                <p class="text-xs sm:text-sm text-gray-100 leading-relaxed">
+                  Verifikasi berkas asli (Mill Certificate, Sertifikat Uji Lab Vendor, Job Mix Formula) dilayani secara tertib via permohonan resmi email demi pencegahan penyalahgunaan berkas tender.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a 
+                href="mailto:penawaran@serbaniagajaya.co.id?subject=Permintaan%20Verifikasi%20Dokumen%20Spesifikasi%20Teknis" 
+                class="inline-flex items-center gap-2 bg-[#FFC700] hover:bg-yellow-dark text-[#111111] font-bold text-xs sm:text-sm px-4 py-2.5 rounded-[6px] transition-all"
+              >
+                <span>Ajukan Verifikasi Dokumen via Email</span>
+                <svg class="w-3.5 h-3.5 text-[#111111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. PANDUAN TEKNIS (3 Kartu Artikel Berfoto 16:9) -->
+    <section id="artikel" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">04 &mdash; EDUKASI & REFERENSI</div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111111] section-title-line">Artikel & Panduan Teknis</h2>
+        </div>
+        <span class="text-xs font-mono text-gray-500">Kajian SNI & Praktik Konstruksi Lapangan</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Artikel 1 -->
+        <article class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/9] rounded-[6px] border border-border-base bg-surface-soft flex items-center justify-center mb-4">
+              <span class="text-xs font-semibold text-[#111111]">Foto U-Ditch menyusul</span>
+            </div>
+            <div class="flex items-center justify-between text-xs mb-2">
+              <span class="font-mono text-green-primary font-bold bg-green-light px-2 py-0.5 rounded">Beton / Saluran</span>
+              <span class="text-gray-500">4 mnt baca</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] mb-2 leading-snug">
+              Precast U-Ditch vs Pasangan Batu Kali: Efisiensi Waktu & Biaya Saluran
+            </h3>
+            <p class="text-xs text-ink opacity-80 line-clamp-3 mb-4">
+              Analisis kecepatan pemasangan, durabilitas mutu beton, dan rasio biaya tenaga kerja pada proyek saluran drainase kawasan perkotaan.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-border-base flex justify-between items-center text-xs">
+            <span class="font-mono text-gray-500">SNI 03-6880</span>
+            <span class="text-green-primary font-bold">Baca Panduan &rarr;</span>
+          </div>
+        </article>
+
+        <!-- Artikel 2 -->
+        <article class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/9] rounded-[6px] border border-border-base bg-surface-soft flex items-center justify-center mb-4">
+              <span class="text-xs font-semibold text-[#111111]">Foto Profil Baja menyusul</span>
+            </div>
+            <div class="flex items-center justify-between text-xs mb-2">
+              <span class="font-mono text-green-primary font-bold bg-green-light px-2 py-0.5 rounded">Baja Struktural</span>
+              <span class="text-gray-500">5 mnt baca</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] mb-2 leading-snug">
+              Perbedaan Profil Baja WF dan H-Beam: Penentuan Momen Kolom & Balok
+            </h3>
+            <p class="text-xs text-ink opacity-80 line-clamp-3 mb-4">
+              Perbandingan distribusi momen aksial dan inersia penampang baja untuk struktur bentang lebar gudang dan bangunan industri.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-border-base flex justify-between items-center text-xs">
+            <span class="font-mono text-gray-500">SNI 2052:2017</span>
+            <span class="text-green-primary font-bold">Baca Panduan &rarr;</span>
+          </div>
+        </article>
+
+        <!-- Artikel 3 -->
+        <article class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between">
+          <div>
+            <div class="aspect-[16/9] rounded-[6px] border border-border-base bg-surface-soft flex items-center justify-center mb-4">
+              <span class="text-xs font-semibold text-[#111111]">Foto Agregat menyusul</span>
+            </div>
+            <div class="flex items-center justify-between text-xs mb-2">
+              <span class="font-mono text-green-primary font-bold bg-green-light px-2 py-0.5 rounded">Batuan & Agregat</span>
+              <span class="text-gray-500">4 mnt baca</span>
+            </div>
+            <h3 class="text-base font-bold text-[#111111] mb-2 leading-snug">
+              Karakteristik Pasir Cor, Pasang & Urug: Pengaruh Kadar Lumpur pada Kuat Tekan
+            </h3>
+            <p class="text-xs text-ink opacity-80 line-clamp-3 mb-4">
+              Pentingnya batas kandungan lumpur di bawah 5% untuk mencegah keretakan struktur dan pemborosan konsumsi semen.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-border-base flex justify-between items-center text-xs">
+            <span class="font-mono text-gray-500">ASTM C33</span>
+            <span class="text-green-primary font-bold">Baca Panduan &rarr;</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 08. TANYA JAWAB / FAQ (Akordeon 2 Kolom, 6 Butir Penjelasan Proses) -->
+    <section id="faq" class="bg-surface-soft border-y border-border-base py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div>
+          <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">05 &mdash; TANYA JAWAB</div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111111] section-title-line">Pertanyaan Seputar Proses Pengadaan</h2>
+          <p class="text-xs sm:text-sm text-ink opacity-80 mt-2">Seluruh alur proses koordinasi dan administrasi dijabarkan secara transparan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <!-- FAQ 1 -->
+          <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+            <summary class="flex items-center justify-between font-bold text-sm text-[#111111] cursor-pointer list-none select-none">
+              <span>Apa yang perlu disiapkan saat menghubungi kami?</span>
+              <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+              Cukup sampaikan lokasi proyek (kecamatan/kota), jenis dan mutu material yang dibutuhkan (contoh: Ready Mix K-300 atau Besi TS 420), estimasi volume, serta tanggal pengiriman yang diinginkan.
+            </p>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+            <summary class="flex items-center justify-between font-bold text-sm text-[#111111] cursor-pointer list-none select-none">
+              <span>Bagaimana cara mendapatkan penawaran harga resmi?</span>
+              <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+              Setelah rincian kebutuhan terkonfirmasi via WhatsApp, tim estimator kami akan menerbitkan dokumen penawaran resmi (BoQ/RAB) berkop surat resmi melalui korespondensi email resmi perusahaan.
+            </p>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+            <summary class="flex items-center justify-between font-bold text-sm text-[#111111] cursor-pointer list-none select-none">
+              <span>Bagaimana penjadwalan ritase armada dilakukan?</span>
+              <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+              Ritase armada (truk mixer, dump truck index 7/24, atau tronton) dijadwalkan berdasarkan konfirmasi PO dan kesiapan akses jalan proyek. Jadwal disepakati sebelum hari pengiriman.
+            </p>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+            <summary class="flex items-center justify-between font-bold text-sm text-[#111111] cursor-pointer list-none select-none">
+              <span>Bagaimana proses verifikasi standar mutu SNI?</span>
+              <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+              Setiap pengiriman material disertai dokumen kendali mutu seperti surat jalan berspesifikasi, sertifikat uji tarik pabrik (Mill Certificate), atau sertifikat uji tekan silinder laboratorium rekanan.
+            </p>
+          </details>
+
+          <!-- FAQ 5 -->
+          <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+            <summary class="flex items-center justify-between font-bold text-sm text-[#111111] cursor-pointer list-none select-none">
+              <span>Apakah melayani pengadaan untuk tender proyek?</span>
+              <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+              Ya. Kami menyediakan surat dukungan vendor dan kelengkapan administrasi pengadaan material untuk tender konstruksi BUMN maupun swasta melalui pengajuan resmi via email.
+            </p>
+          </details>
+
+          <!-- FAQ 6 -->
+          <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+            <summary class="flex items-center justify-between font-bold text-sm text-[#111111] cursor-pointer list-none select-none">
+              <span>Di mana saja cakupan wilayah pengiriman?</span>
+              <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+              Jangkauan distribusi reguler kami mencakup seluruh wilayah DKI Jakarta, Bogor, Depok, Tangerang Raya, Bekasi, serta Kawasan Industri Cikarang dan Karawang.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 09. BANNER PENUTUP BERFOTO (Panel Hijau dengan Tombol Ganda di Kiri + Foto di Kanan) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="rounded-[10px] bg-green-light border-t-2 border-green-primary border-x border-b border-border-base p-8 sm:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Dua Rute di Kiri -->
+          <div class="lg:col-span-8 space-y-4">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111111]">Mulai Koordinasi Pengadaan Proyek Anda</h2>
+            <p class="text-xs sm:text-sm text-ink opacity-85 leading-relaxed max-w-xl">
+              Hubungi tim kami langsung via WhatsApp untuk ketersediaan armada, atau kirimkan rincian BoQ/RAB melalui email resmi untuk diterbitkan penawaran harga terikat.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <a 
+                href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20konsultasi%20pengadaan%20material." 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-[#FFC700] hover:bg-yellow-dark text-[#111111] font-bold text-sm px-5 py-3 rounded-[6px] inline-flex items-center gap-2 transition-all active:scale-98 shadow-sm"
+              >
+                <span>Konsultasi WhatsApp</span>
+              </a>
+
+              <a 
+                href="mailto:penawaran@serbaniagajaya.co.id?subject=Permintaan%20Penawaran%20Resmi%20BoQ" 
+                class="bg-surface hover:bg-white text-[#111111] border border-green-primary font-semibold text-sm px-5 py-3 rounded-[6px] inline-flex items-center gap-2 transition-colors"
+              >
+                <span>Kirim BoQ via Email</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Satu Foto di Kanan (Rasio 4:3) -->
+          <div class="lg:col-span-4">
+            <div class="aspect-[4/3] rounded-[8px] border border-border-base bg-surface flex flex-col items-center justify-center p-4 text-center">
+              <svg class="w-8 h-8 text-green-primary mb-2 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+              </svg>
+              <span class="text-xs font-semibold text-[#111111]">Foto tim operasional menyusul</span>
+              <span class="text-[10px] text-gray-500 mt-1">Dukungan Pengadaan Lapangan</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="bg-surface-soft border-t-2 border-green-primary py-12 text-ink">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-border-base">
+        <!-- Kolom 1: Perusahaan & Logo -->
+        <div class="space-y-4">
+          <img src="logo.png" alt="CV. Serba Niaga Jaya" class="h-10 w-auto object-contain">
+          <p class="text-xs text-ink opacity-80 leading-relaxed">
+            Pemasok material konstruksi dan infrastruktur terpadu berstandar SNI dan Bina Marga untuk kebutuhan kontraktor dan mandor Jabodetabek.
+          </p>
+        </div>
+
+        <!-- Kolom 2: Kategori Material -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono font-bold uppercase text-[#111111] tracking-wider">Kategori Material</h4>
+          <ul class="space-y-2 text-xs text-ink opacity-80">
+            <li><a href="#kategori" class="hover:text-green-primary">Beton Ready Mix & Precast</a></li>
+            <li><a href="#kategori" class="hover:text-green-primary">Baja Tulangan Polos & Ulir</a></li>
+            <li><a href="#kategori" class="hover:text-green-primary">Aspal Hotmix AC-WC & AC-BC</a></li>
+            <li><a href="#kategori" class="hover:text-green-primary">Pasir Cor, Pasang & Split 1/2</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Kontak Resmi -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono font-bold uppercase text-[#111111] tracking-wider">Jalur Resmi</h4>
+          <div class="space-y-2 text-xs text-ink opacity-80">
+            <div>
+              <span class="block text-gray-500">WhatsApp Teknis:</span>
+              <a href="https://wa.me/6281288889999" class="font-mono font-bold text-[#111111] hover:underline">+62 812-8888-9999</a>
+            </div>
+            <div>
+              <span class="block text-gray-500">Email BoQ / Penawaran:</span>
+              <a href="mailto:penawaran@serbaniagajaya.co.id" class="font-mono text-[#111111] hover:underline">penawaran@serbaniagajaya.co.id</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom 4: Wilayah Layanan -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono font-bold uppercase text-[#111111] tracking-wider">Wilayah Distribusi</h4>
+          <p class="text-xs text-ink opacity-80 leading-relaxed">
+            DKI Jakarta, Kota & Kab. Bogor, Kota Depok, Tangerang Raya, Kota & Kab. Bekasi, Cikarang, dan Karawang.
+          </p>
+        </div>
+      </div>
+
+      <!-- Baris Pernyataan Integritas Terbawah -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink opacity-70">
+        <div>
+          &copy; 2026 CV. Serba Niaga Jaya. Seluruh hak cipta dilindungi undang-undang.
+        </div>
+        <div class="text-center sm:text-right font-medium">
+          Kepatuhan Spesifikasi Teknis Standar SNI, ASTM & Bina Marga PUPR.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE BOTTOM BAR (Smart Scroll Auto-Hide/Show) -->
+  <div id="mobile-bottom-bar" class="fixed bottom-0 inset-x-0 z-40 bg-surface border-t border-border-base px-4 py-2.5 flex items-center gap-3 transition-transform duration-200 md:hidden shadow-lg">
+    <a 
+      href="https://wa.me/6281288889999?text=Halo%20CV.%20Serba%20Niaga%20Jaya%2C%20saya%20ingin%20menanyakan%20ketersediaan%20material." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="flex-1 bg-[#FFC700] text-[#111111] font-bold text-xs py-3 px-3 rounded-[6px] text-center inline-flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+    >
+      <svg class="w-4 h-4 text-[#111111]" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <a 
+      href="mailto:penawaran@serbaniagajaya.co.id?subject=Permintaan%20Penawaran%20BoQ" 
+      class="flex-1 bg-surface text-[#111111] border border-green-primary font-semibold text-xs py-3 px-3 rounded-[6px] text-center inline-flex items-center justify-center gap-1.5 active:bg-green-light transition-colors"
+    >
+      <span>Email BoQ</span>
+    </a>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast" class="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-50 bg-surface border border-green-primary rounded-[6px] px-4 py-3 shadow-md flex items-center gap-2 text-xs font-semibold text-[#111111] transform translate-y-16 opacity-0 pointer-events-none transition-all duration-200">
+    <span class="text-green-primary">✓</span>
+    <span id="toast-message">Kode spesifikasi disalin ke clipboard</span>
+  </div>
+
+  <!-- Script Interaktif v3.1: Theme Toggle, Auto-Shrink, Scroll Progress, Spec Copy -->
+  <script>
+    // 1. Theme Toggle (Mode Terang & Gelap)
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeBtnMobile = document.getElementById('theme-toggle-mobile');
+    const iconSun = document.getElementById('theme-icon-sun');
+    const iconMoon = document.getElementById('theme-icon-moon');
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        htmlEl.classList.add('dark');
+        htmlEl.classList.remove('light');
+        iconSun?.classList.remove('hidden');
+        iconMoon?.classList.add('hidden');
+        localStorage.setItem('snj-theme', 'dark');
+      } else {
+        htmlEl.classList.remove('dark');
+        htmlEl.classList.add('light');
+        iconSun?.classList.add('hidden');
+        iconMoon?.classList.remove('hidden');
+        localStorage.setItem('snj-theme', 'light');
+      }
+    }
+
+    // Cek preferensi awal: localStorage atau prefers-color-scheme
+    const savedTheme = localStorage.getItem('snj-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
+
+    function toggleThemeAction() {
+      const isDark = htmlEl.classList.contains('dark');
+      applyTheme(!isDark);
+    }
+
+    themeBtn?.addEventListener('click', toggleThemeAction);
+    themeBtnMobile?.addEventListener('click', toggleThemeAction);
+
+    // 2. Mobile Menu Drawer Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    menuBtn?.addEventListener('click', () => {
+      drawer?.classList.toggle('hidden');
+    });
+
+    // 3. Scroll Reading Progress & Header Shrink
+    const progressBar = document.getElementById('scroll-progress-bar');
+    const headerContainer = document.getElementById('header-container');
+    const mobileBottomBar = document.getElementById('mobile-bottom-bar');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (currentScrollY / docHeight) : 0;
+      
+      // Update top progress bar
+      if (progressBar) {
+        progressBar.style.transform = `scaleX(${progress})`;
+      }
+
+      // Header height shrink (80px -> 64px)
+      if (currentScrollY > 60) {
+        headerContainer?.classList.remove('h-20');
+        headerContainer?.classList.add('h-16');
+      } else {
+        headerContainer?.classList.remove('h-16');
+        headerContainer?.classList.add('h-20');
+      }
+
+      // Mobile bottom bar auto-hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        mobileBottomBar?.classList.add('translate-y-full');
+      } else {
+        mobileBottomBar?.classList.remove('translate-y-full');
+      }
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+
+    // 4. Spec Copy Functionality & Toast Notification
+    function copySpec(text) {
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-message');
+        if (toast && toastMsg) {
+          toastMsg.textContent = `Kode spesifikasi "${text}" tersalin!`;
+          toast.classList.remove('translate-y-16', 'opacity-0', 'pointer-events-none');
+          setTimeout(() => {
+            toast.classList.add('translate-y-16', 'opacity-0', 'pointer-events-none');
+          }, 2400);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

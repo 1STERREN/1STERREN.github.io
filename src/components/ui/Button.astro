@@ -1,0 +1,27 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  href?: string;
+  target?: string;
+  class?: string;
+  id?: string;
+}
+const { variant = 'primary', href, target, class: className = '', id } = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center gap-2 font-bold text-sm px-5 py-3 rounded-[6px] transition-all duration-150 active:scale-[0.98] select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FFC700] focus:ring-offset-2";
+const variants = {
+  primary: "bg-[#FFC700] hover:bg-[#E5B300] text-[#111111] shadow-sm",
+  secondary: "bg-surface hover:bg-[#E5F6E8] text-[#111111] border border-[#12A150]",
+  ghost: "bg-transparent text-[#12A150] hover:underline"
+};
+const combinedClass = `${baseStyles} ${variants[variant]} ${className}`;
+---
+{href ? (
+  <a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} class={combinedClass} id={id}>
+    <slot />
+  </a>
+) : (
+  <button type="button" class={combinedClass} id={id}>
+    <slot />
+  </button>
+)}

@@ -1,0 +1,19 @@
+---
+import DivisionPage from '@/components/templates/DivisionPage.astro';
+import { getEntry } from 'astro:content';
+
+const batuanEntry = await getEntry('products', 'batuan');
+if (!batuanEntry) {
+  throw new Error('Data batuan tidak ditemukan');
+}
+const data = batuanEntry.data;
+---
+
+<DivisionPage 
+  unitBusinessName={data.unitBusinessName}
+  category="batuan"
+  description={data.description}
+  sections={data.sections}
+  datasheetUrl={data.datasheetUrl}
+  photoSrc="/images/foto-batuan-agregat.jpg"
+/>

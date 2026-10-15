@@ -1,0 +1,19 @@
+---
+import DivisionPage from '@/components/templates/DivisionPage.astro';
+import { getEntry } from 'astro:content';
+
+const betonEntry = await getEntry('products', 'beton');
+if (!betonEntry) {
+  throw new Error('Data beton tidak ditemukan');
+}
+const data = betonEntry.data;
+---
+
+<DivisionPage 
+  unitBusinessName={data.unitBusinessName}
+  category="beton"
+  description={data.description}
+  sections={data.sections}
+  datasheetUrl={data.datasheetUrl}
+  photoSrc="/images/foto-beton-readymix.jpg"
+/>

@@ -1,0 +1,81 @@
+{
+  "category": "beton",
+  "unitBusinessName": "NIAGA BETON",
+  "categoryName": "Niaga Beton",
+  "slug": "niaga-beton",
+  "description": "Niaga Beton adalah unit bisnis CV. Serba Niaga Jaya yang berfokus pada penyediaan beton siap pakai (ready mix) dan beton pracetak (precast). Kami melayani pengecoran untuk jalan, gedung bertingkat, perumahan, hingga fasilitas umum.",
+  "datasheetUrl": null,
+  "sections": [
+    {
+      "title": "A. Beton Readymix berdasarkan mutu",
+      "items": [
+        {
+          "name": "Mutu Kelas I (K-100 s.d. K-200)",
+          "description": "konstruksi non-struktural seperti lantai kerja (lean concrete), jalan lingkungan non-beban berat, dan saluran air dangkal."
+        },
+        {
+          "name": "Mutu Kelas II (K-225, K-250, K-275, K-300)",
+          "description": "konstruksi struktural standar seperti sloof, kolom, balok, dak lantai rumah bertingkat, ruko, dan jalan komplek."
+        },
+        {
+          "name": "Mutu Kelas III (K-350, K-400, K-450, K-500)",
+          "description": "beton berkekuatan tinggi untuk konstruksi berat seperti jalan tol, jembatan, tiang pancang, lantai pabrik/gudang, dan dermaga."
+        },
+        {
+          "name": "Readymix Fly Ash & Non-Fly Ash",
+          "description": "pilihan campuran dengan fly ash untuk ketahanan ekonomis, atau non-fly ash untuk pengeringan awal yang lebih cepat."
+        }
+      ]
+    },
+    {
+      "title": "B. Beton Pracetak (Precast)",
+      "items": [
+        {
+          "name": "U-Ditch",
+          "description": "Saluran drainase beton terbuka presisi."
+        },
+        {
+          "name": "Cover U-Ditch",
+          "description": "Tutup saluran drainase heavy duty & light duty."
+        },
+        {
+          "name": "Buis Beton (gorong-gorong)",
+          "description": "Saluran air pipa beton bulat sumur resapan."
+        },
+        {
+          "name": "Box Culvert",
+          "description": "Gorong-gorong persegi untuk crossing jalan & jembatan."
+        },
+        {
+          "name": "Paving Block",
+          "description": "Perkerasan halaman, trotoar, dan area parkir."
+        },
+        {
+          "name": "Kanstin",
+          "description": "Pembatas tepi jalan trotoar dan taman."
+        }
+      ]
+    },
+    {
+      "title": "C. Layanan Pompa Beton",
+      "items": [
+        {
+          "name": "Pompa Standar",
+          "description": "Distribusi cor bangunan 2-3 lantai jangkauan standar."
+        },
+        {
+          "name": "Pompa Mini",
+          "description": "Untuk gang sempit dan akses jalan terbatas."
+        },
+        {
+          "name": "Pompa Longboom",
+          "description": "Distribusi cor gedung tinggi dan bentang jangkauan panjang."
+        },
+        {
+          "name": "Pompa Kodok (portable)",
+          "description": "Untuk distribusi beton di lokasi sulit dan pipa horizontal panjang."
+        }
+      ]
+    }
+  ]
+}

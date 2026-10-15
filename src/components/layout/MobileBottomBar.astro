@@ -1,0 +1,39 @@
+---
+import { createWhatsAppUrl, createBoQMailtoUrl } from '@/utils/links';
+const waUrl = createWhatsAppUrl();
+const mailtoUrl = createBoQMailtoUrl();
+---
+
+<div id="mobile-bottom-bar" class="fixed bottom-0 inset-x-0 z-40 bg-surface border-t border-border-base px-4 py-2.5 flex items-center gap-3 transition-transform duration-200 md:hidden shadow-lg">
+  <a 
+    href={waUrl} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="flex-1 bg-[#FFC700] text-[#111111] font-bold text-xs py-3 px-3 rounded-[6px] text-center inline-flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+  >
+    <svg class="w-4 h-4 text-[#111111]" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+  <a 
+    href={mailtoUrl} 
+    class="flex-1 bg-surface text-[#111111] border border-green-primary font-bold text-xs py-3 px-3 rounded-[6px] text-center inline-flex items-center justify-center gap-1.5 active:bg-green-light transition-colors"
+  >
+    <span>Email BoQ</span>
+  </a>
+</div>
+
+<script>
+  let lastScrollY = window.scrollY;
+  const mobileBottomBar = document.getElementById('mobile-bottom-bar');
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      mobileBottomBar?.classList.add('translate-y-full');
+    } else {
+      mobileBottomBar?.classList.remove('translate-y-full');
+    }
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+</script>

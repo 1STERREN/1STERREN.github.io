@@ -1,0 +1,19 @@
+---
+import DivisionPage from '@/components/templates/DivisionPage.astro';
+import { getEntry } from 'astro:content';
+
+const bajaEntry = await getEntry('products', 'baja');
+if (!bajaEntry) {
+  throw new Error('Data baja tidak ditemukan');
+}
+const data = bajaEntry.data;
+---
+
+<DivisionPage 
+  unitBusinessName={data.unitBusinessName}
+  category="baja"
+  description={data.description}
+  sections={data.sections}
+  datasheetUrl={data.datasheetUrl}
+  photoSrc="/images/foto-baja-rebar.jpg"
+/>

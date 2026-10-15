@@ -1,0 +1,46 @@
+{
+  "category": "batuan",
+  "unitBusinessName": "NIAGA BATUAN",
+  "categoryName": "Niaga Batuan",
+  "slug": "niaga-batuan",
+  "description": "Niaga Batuan memasok material alam dasar, agregat, dan bahan pasangan dinding yang menjadi fondasi setiap pekerjaan konstruksi, langsung dari kuari dan pabrik terpercaya.",
+  "datasheetUrl": null,
+  "sections": [
+    {
+      "title": "Batu Kali & Batu Belah",
+      "items": [
+        {
+          "name": "Batu Kali & Batu Belah",
+          "description": "pondasi bangunan, retaining wall (dinding penahan tanah), dan bronjong."
+        }
+      ]
+    },
+    {
+      "title": "Pasir Konstruksi",
+      "items": [
+        {
+          "name": "Pasir Konstruksi",
+          "description": "Pasir Rangkas, Pasir Cilegon, Pasir Lampung, Pasir Cor, Pasir Pasang, Pasir Urug."
+        }
+      ]
+    },
+    {
+      "title": "Bata & Material Dinding",
+      "items": [
+        {
+          "name": "Bata & Material Dinding",
+          "description": "Bata Ringan/Hebel (AAC), Batu Bata Merah Press/Jumbo, Batako Press."
+        }
+      ]
+    },
+    {
+      "title": "Batu Split & Agregat",
+      "items": [
+        {
+          "name": "Batu Split & Agregat",
+          "description": "Batu Split 1/2, 2/3, 3/5, Batu Makadam, Batu Sirdam, dan Abu Batu untuk campuran cor dan pengurugan."
+        }
+      ]
+    }
+  ]
+}

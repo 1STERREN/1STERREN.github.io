@@ -1,0 +1,35 @@
+{
+  "category": "aspal",
+  "unitBusinessName": "NIAGA ASPAL",
+  "categoryName": "Niaga Aspal",
+  "slug": "niaga-aspal",
+  "description": "Niaga Aspal menyediakan material pengerasan jalan dan pelapis anti-air, mulai dari aspal mentah, aspal olahan, hingga jasa pengaspalan hotmix untuk jalan, area parkir, dan kawasan industri.",
+  "datasheetUrl": null,
+  "sections": [
+    {
+      "title": "Produk & Layanan Pengaspalan",
+      "items": [
+        {
+          "name": "Aspal Penetrasi (Pen 60/70)",
+          "description": "bahan utama campuran hotmix, umum dipakai untuk iklim tropis Indonesia."
+        },
+        {
+          "name": "Aspal Hotmix (Asphalt Concrete)",
+          "description": "varian AC-WC (Wearing Course), AC-BC (Binder Course), Fine Sheet, Sand Sheet, dan HRS (Hot Rolled Sheet)."
+        },
+        {
+          "name": "Aspal Emulsi",
+          "description": "Tack Coat (perekat) dan Prime Coat (resap pengikat) untuk pelapisan dasar fondasi jalan."
+        },
+        {
+          "name": "Aspal Cair / Cutback",
+          "description": "perekat anti-debu dan pelapis awal permukaan jalan."
+        },
+        {
+          "name": "Aspal Curah / Drum",
+          "description": "kemasan drum atau curah untuk tambal jalan, waterproofing atap/jembatan, dan joint sealant beton."
+        }
+      ]
+    }
+  ]
+}

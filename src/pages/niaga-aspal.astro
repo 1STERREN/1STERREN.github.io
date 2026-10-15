@@ -1,0 +1,19 @@
+---
+import DivisionPage from '@/components/templates/DivisionPage.astro';
+import { getEntry } from 'astro:content';
+
+const aspalEntry = await getEntry('products', 'aspal');
+if (!aspalEntry) {
+  throw new Error('Data aspal tidak ditemukan');
+}
+const data = aspalEntry.data;
+---
+
+<DivisionPage 
+  unitBusinessName={data.unitBusinessName}
+  category="aspal"
+  description={data.description}
+  sections={data.sections}
+  datasheetUrl={data.datasheetUrl}
+  photoSrc="/images/foto-aspal-hotmix.jpg"
+/>

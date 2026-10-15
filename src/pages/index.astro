@@ -1,0 +1,547 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/Button.astro';
+import SpecChip from '@/components/ui/SpecChip.astro';
+import PhotoSlot from '@/components/ui/PhotoSlot.astro';
+import PhotoCarousel from '@/components/ui/PhotoCarousel.astro';
+import { createWhatsAppUrl, createBoQMailtoUrl } from '@/utils/links';
+
+const waHeroUrl = createWhatsAppUrl("Material Konstruksi Umum");
+const waBetonUrl = createWhatsAppUrl("Beton Ready Mix & Precast");
+const waBajaUrl = createWhatsAppUrl("Baja Tulangan SNI");
+const waAspalUrl = createWhatsAppUrl("Aspal Hotmix");
+const waBatuanUrl = createWhatsAppUrl("Agregat Pasir & Batu Split");
+const mailtoUrl = createBoQMailtoUrl();
+---
+
+<Layout>
+  <!-- 01. HERO TERPUSAT -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 text-center">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[6px] bg-green-light border border-border-base text-xs font-bold text-ink mb-6">
+      <span class="w-2 h-2 rounded-full bg-green-primary"></span>
+      <span>Wilayah Distribusi: Jabodetabek, Cikarang & Karawang</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-ink tracking-tight leading-[1.15] mb-6">
+      Material konstruksi lengkap, satu pintu.
+    </h1>
+
+    <p class="text-base sm:text-lg text-ink leading-relaxed max-w-2xl mx-auto mb-8 opacity-90">
+      Penyedia terpercaya beton ready-mix, baja tulangan bersertifikat, aspal hotmix, dan agregat batuan standar SNI untuk kelancaran proyek Anda.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <Button href={waHeroUrl} target="_blank">
+        <span>Konsultasi via WhatsApp</span>
+        <svg class="w-4 h-4 text-[#111111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </Button>
+
+      <Button href="#kategori" variant="secondary">
+        <span>Lihat Katalog Spesifikasi</span>
+      </Button>
+    </div>
+  </section>
+
+  <!-- 02. CAROUSEL FOTO OTOMATIS BERGERAK (Dokumentasi Material & Proyek Aktual) -->
+  <PhotoCarousel />
+
+  <!-- 03. STRIP KOMITMEN EMPAT BUTIR -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-y border-border-base my-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+      <div class="flex items-start gap-3">
+        <span class="text-green-primary font-black text-base">✓</span>
+        <div>
+          <h4 class="text-xs font-bold text-ink uppercase tracking-wider">Rujukan Standar SNI</h4>
+          <p class="text-xs text-ink opacity-80 mt-0.5">Spesifikasi teknis mengikuti uji laboratorium resmi.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <span class="text-green-primary font-black text-base">✓</span>
+        <div>
+          <h4 class="text-xs font-bold text-ink uppercase tracking-wider">Jadwal Ritase Pasti</h4>
+          <p class="text-xs text-ink opacity-80 mt-0.5">Waktu pengiriman dikonfirmasi langsung per pesanan.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <span class="text-green-primary font-black text-base">✓</span>
+        <div>
+          <h4 class="text-xs font-bold text-ink uppercase tracking-wider">Penawaran Tertulis</h4>
+          <p class="text-xs text-ink opacity-80 mt-0.5">Dokumen resmi BoQ/RAB diterbitkan via email resmi.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <span class="text-green-primary font-black text-base">✓</span>
+        <div>
+          <h4 class="text-xs font-bold text-ink uppercase tracking-wider">Distribusi Terkoordinasi</h4>
+          <p class="text-xs text-ink opacity-80 mt-0.5">Melayani Jabodetabek, Cikarang, dan Karawang.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. EMPAT KATEGORI MATERIAL (Asimetris: 1 Besar + 3 Kecil) -->
+  <section id="kategori" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">01 &mdash; PASOKAN TERPADU</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink">Empat Kategori Pengadaan</h2>
+        <p class="text-xs sm:text-sm text-ink/75 mt-1">Klik pada kategori untuk melihat spesifikasi lengkap dan belanja material.</p>
+      </div>
+      <a href="/produk" class="text-xs font-bold text-green-primary hover:underline inline-flex items-center gap-1 shrink-0">
+        <span>Buka Semua Katalog</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Kartu Unggulan Besar: Beton (Kolom 6) -->
+      <a 
+        href="/niaga-beton" 
+        class="lg:col-span-6 border border-border-base rounded-[10px] bg-surface p-6 sm:p-8 flex flex-col justify-between industrial-card group hover:border-[#12A150] hover:shadow-xl transition-all block cursor-pointer"
+      >
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-black text-green-primary font-mono">01</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono px-2 py-1 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold border border-[#12A150]/20">
+                SNI 2847 / PUPR
+              </span>
+              <span class="text-[11px] font-bold text-green-primary group-hover:translate-x-0.5 transition-transform hidden sm:inline-flex items-center gap-0.5">
+                <span>Buka Katalog</span>
+                <span>&rarr;</span>
+              </span>
+            </div>
+          </div>
+          
+          <PhotoSlot 
+            aspectRatio="16/9" 
+            src="/images/foto-beton-readymix.jpg"
+            label="Ready Mix & Precast" 
+            sublabel="Molen 7m³ & Minimix"
+            class="mb-6" 
+          />
+
+          <h3 class="text-2xl font-black text-ink mb-2 group-hover:text-green-primary transition-colors">
+            Beton Ready Mix & Precast
+          </h3>
+          <p class="text-sm text-ink opacity-85 leading-relaxed mb-6">
+            Penyediaan beton curah siap pakai untuk struktur gedung, rigid pavement jalan raya, serta saluran U-Ditch dan Box Culvert presisi tinggi.
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <SpecChip code="K-300 / f'c 25" />
+            <SpecChip code="U-Ditch 40x40" />
+            <SpecChip code="Box Culvert" />
+            <SpecChip code="Sewa Pompa" />
+          </div>
+        </div>
+
+        <div class="w-full bg-[#FFC700] group-hover:bg-[#E5B300] text-ink font-bold text-xs sm:text-sm py-3 px-4 rounded-[6px] shadow-sm flex items-center justify-center gap-2 transition-all">
+          <span>Lihat Spesifikasi & Pesan Niaga Beton</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- 3 Kartu Ringkas (Kolom 6) -->
+      <div class="lg:col-span-6 flex flex-col gap-5">
+        <!-- Kartu 2: Baja -->
+        <a 
+          href="/niaga-baja" 
+          class="border border-border-base rounded-[10px] bg-surface p-5 industrial-card flex flex-col justify-between group hover:border-[#12A150] hover:shadow-lg transition-all block cursor-pointer"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono font-bold text-green-primary">02 &mdash; SNI 2052:2017</span>
+                <span class="text-[10px] font-mono bg-[#E5F6E8] text-[#0A4D2E] px-1.5 py-0.5 rounded font-bold">BjTS 420 & WF</span>
+              </div>
+              <h4 class="text-lg font-bold text-ink group-hover:text-green-primary transition-colors">
+                Baja Tulangan & Profil
+              </h4>
+              <p class="text-xs text-ink opacity-80 mt-1">
+                Besi beton polos (TP 280) & ulir (TS 420), wiremesh M6–M10, WF dan H-Beam bersertifikat pabrik.
+              </p>
+            </div>
+            <img 
+              src="/images/foto-baja-rebar.jpg" 
+              alt="Baja Tulangan SNI" 
+              class="w-16 h-16 sm:w-20 sm:h-20 rounded-[8px] object-cover shrink-0 border border-border-base group-hover:scale-105 transition-transform"
+            />
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-3 border-t border-border-base">
+            <div class="flex gap-1.5 flex-wrap">
+              <SpecChip code="TS 420B" />
+              <SpecChip code="Wiremesh M8" />
+              <SpecChip code="Alderon uPVC" />
+            </div>
+            <span class="text-xs font-bold text-green-primary group-hover:underline inline-flex items-center gap-1 shrink-0">
+              <span>Buka Katalog</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Kartu 3: Aspal -->
+        <a 
+          href="/niaga-aspal" 
+          class="border border-border-base rounded-[10px] bg-surface p-5 industrial-card flex flex-col justify-between group hover:border-[#12A150] hover:shadow-lg transition-all block cursor-pointer"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono font-bold text-green-primary">03 &mdash; SPESIFIKASI BINA MARGA</span>
+                <span class="text-[10px] font-mono bg-[#E5F6E8] text-[#0A4D2E] px-1.5 py-0.5 rounded font-bold">AC-WC & Pen 60/70</span>
+              </div>
+              <h4 class="text-lg font-bold text-ink group-hover:text-green-primary transition-colors">
+                Aspal Hotmix & Bitumen
+              </h4>
+              <p class="text-xs text-ink opacity-80 mt-1">
+                Campuran aspal panas AC-WC, AC-BC, aspal penetrasi Pen 60/70, serta emulsi Prime Coat dan Tack Coat.
+              </p>
+            </div>
+            <img 
+              src="/images/foto-aspal-hotmix.jpg" 
+              alt="Aspal Hotmix Jalan" 
+              class="w-16 h-16 sm:w-20 sm:h-20 rounded-[8px] object-cover shrink-0 border border-border-base group-hover:scale-105 transition-transform"
+            />
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-3 border-t border-border-base">
+            <div class="flex gap-1.5 flex-wrap">
+              <SpecChip code="AC-WC" />
+              <SpecChip code="Pen 60/70" />
+              <SpecChip code="Tack Coat" />
+            </div>
+            <span class="text-xs font-bold text-green-primary group-hover:underline inline-flex items-center gap-1 shrink-0">
+              <span>Buka Katalog</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Kartu 4: Batuan -->
+        <a 
+          href="/niaga-batuan" 
+          class="border border-border-base rounded-[10px] bg-surface p-5 industrial-card flex flex-col justify-between group hover:border-[#12A150] hover:shadow-lg transition-all block cursor-pointer"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono font-bold text-green-primary">04 &mdash; ASTM C33 / SNI</span>
+                <span class="text-[10px] font-mono bg-[#E5F6E8] text-[#0A4D2E] px-1.5 py-0.5 rounded font-bold">Pasir Cuci & Split</span>
+              </div>
+              <h4 class="text-lg font-bold text-ink group-hover:text-green-primary transition-colors">
+                Agregat, Pasir & Batuan
+              </h4>
+              <p class="text-xs text-ink opacity-80 mt-1">
+                Pasir cor cuci bebas lumpur, batu split gradasi 1/2 dan 2/3 untuk struktur beton, serta batu kali belah pondasi.
+              </p>
+            </div>
+            <img 
+              src="/images/foto-batuan-agregat.jpg" 
+              alt="Agregat Pasir dan Batu Split" 
+              class="w-16 h-16 sm:w-20 sm:h-20 rounded-[8px] object-cover shrink-0 border border-border-base group-hover:scale-105 transition-transform"
+            />
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-3 border-t border-border-base">
+            <div class="flex gap-1.5 flex-wrap">
+              <SpecChip code="Pasir Cor" />
+              <SpecChip code="Split 1/2" />
+              <SpecChip code="Bata Hebel" />
+            </div>
+            <span class="text-xs font-bold text-green-primary group-hover:underline inline-flex items-center gap-1 shrink-0">
+              <span>Buka Katalog</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. CARA PEMESANAN (Foto 4:5 + 4 Langkah Bernomor Kuning) -->
+  <section id="cara-pesan" class="bg-surface-soft border-y border-border-base py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <div class="lg:col-span-5">
+          <PhotoSlot aspectRatio="4/5" label="Koordinasi Ritase Lapangan" sublabel="Terhubung Langsung Tim Teknis" />
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">02 &mdash; ALUR KERJA</div>
+            <h2 class="text-2xl sm:text-3xl font-black text-ink">Empat Langkah Pemesanan</h2>
+            <p class="text-sm text-ink opacity-80 mt-2">Tanpa form isian publik. Komunikasi berjalan terarah dan langsung.</p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+              <span class="text-base font-mono font-black text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300]">01</span>
+              <div>
+                <h4 class="text-sm font-bold text-ink">Tanya via WhatsApp</h4>
+                <p class="text-xs text-ink opacity-80 mt-0.5">Sampaikan kebutuhan material, lokasi proyek di Jabodetabek/Karawang, dan estimasi waktu pengecoran atau instalasi.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+              <span class="text-base font-mono font-black text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300]">02</span>
+              <div>
+                <h4 class="text-sm font-bold text-ink">Konfirmasi Spesifikasi & Ritase</h4>
+                <p class="text-xs text-ink opacity-80 mt-0.5">Tim teknis memverifikasi mutu beton, diameter baja, jadwal ketersediaan mixer/dump truck, dan akses jalan proyek.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+              <span class="text-base font-mono font-black text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300]">03</span>
+              <div>
+                <h4 class="text-sm font-bold text-ink">Penawaran Resmi via Email</h4>
+                <p class="text-xs text-ink opacity-80 mt-0.5">Dokumen penawaran harga resmi (BoQ/RAB) diterbitkan melalui email resmi lengkap dengan syarat teknis terikat.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-[8px] border border-border-base bg-surface flex gap-4 items-start">
+              <span class="text-base font-mono font-black text-[#111111] bg-[#FFC700] px-2.5 py-1 rounded border border-[#E5B300]">04</span>
+              <div>
+                <h4 class="text-sm font-bold text-ink">Pengiriman Sesuai Jadwal</h4>
+                <p class="text-xs text-ink opacity-80 mt-0.5">Armada diberangkatkan tepat waktu dari batching plant atau gudang distribusi terdekat sesuai jadwal ritase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. PANEL PRESISI SPESIFIKASI (Hijau Tua Deep Forest #0A4D2E) -->
+  <section id="spesifikasi" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="rounded-[12px] bg-[#0A4D2E] text-white p-6 sm:p-10 border border-[#0A4D2E]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-5">
+          <PhotoSlot aspectRatio="4/5" label="Uji Tekan Silinder & Kuat Tarik" sublabel="Sertifikat Lab Vendor Sah" class="bg-black/20 border-white/20 text-white" />
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <div class="text-xs font-mono font-bold text-[#FFC700] uppercase tracking-wider mb-1">03 &mdash; INTEGRITAS TEKNIS</div>
+            <h2 class="text-2xl sm:text-3xl font-black text-white">Panel Presisi Spesifikasi</h2>
+            <p class="text-xs sm:text-sm text-gray-100 mt-2 leading-relaxed">
+              Kepatuhan mutlak terhadap parameter teknik yang disyaratkan oleh konsultan dan pengawas lapangan:
+            </p>
+          </div>
+
+          <div class="space-y-4 pt-2">
+            <div class="border-b border-white/20 pb-3">
+              <span class="text-xs font-mono font-bold text-[#FFC700] uppercase block mb-1">Mutu</span>
+              <p class="text-xs sm:text-sm text-gray-100 leading-relaxed">
+                Nomenklatur baku SNI dan PUPR: Kuat tekan beton kubus K-100 s.d K-500 atau konversi silinder f'c (MPa), baja BjTP 280 & BjTS 420B, serta aspal AC-WC / AC-BC.
+              </p>
+            </div>
+
+            <div class="border-b border-white/20 pb-3">
+              <span class="text-xs font-mono font-bold text-[#FFC700] uppercase block mb-1">Standar</span>
+              <p class="text-xs sm:text-sm text-gray-100 leading-relaxed">
+                Rujukan resmi SNI 2847, SNI 2052:2017, dan Spesifikasi Umum Bina Marga (Perkerasan Aspal).
+              </p>
+            </div>
+
+            <div>
+              <span class="text-xs font-mono font-bold text-[#FFC700] uppercase block mb-1">Dokumen</span>
+              <p class="text-xs sm:text-sm text-gray-100 leading-relaxed">
+                Verifikasi berkas asli (Mill Certificate, Sertifikat Uji Lab Vendor, Job Mix Formula) dilayani secara tertib via permohonan resmi email demi pencegahan penyalahgunaan berkas tender.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <Button href={mailtoUrl}>
+              <span>Ajukan Verifikasi Dokumen via Email</span>
+              <svg class="w-3.5 h-3.5 text-[#111111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </Button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 07. PANDUAN TEKNIS (3 Artikel) -->
+  <section id="artikel" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div>
+        <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">04 &mdash; EDUKASI & REFERENSI</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink">Artikel & Panduan Teknis</h2>
+      </div>
+      <span class="text-xs font-mono text-gray-500">Kajian SNI & Praktik Konstruksi Lapangan</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a href="/artikel/precast-u-ditch-vs-batu-kali" class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between group">
+        <div>
+          <PhotoSlot aspectRatio="16/9" label="Precast Saluran" class="mb-4" />
+          <div class="flex items-center justify-between text-xs mb-2">
+            <span class="font-mono text-green-primary font-bold bg-[#E5F6E8] px-2 py-0.5 rounded">Beton / Saluran</span>
+            <span class="text-gray-500 font-mono text-[11px]">4 mnt baca</span>
+          </div>
+          <h3 class="text-base font-bold text-ink mb-2 leading-snug group-hover:text-green-primary transition-colors">
+            Precast U-Ditch vs Pasangan Batu Kali: Efisiensi Waktu & Biaya Saluran Drainase
+          </h3>
+          <p class="text-xs text-ink opacity-80 line-clamp-3 mb-4">
+            Analisis kecepatan pemasangan, durabilitas mutu beton K-350, dan studi kasus penanganan galian di jalan arteri perkotaan.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-border-base flex justify-between items-center text-xs">
+          <span class="font-mono text-gray-500">SNI 03-6880</span>
+          <span class="text-green-primary font-bold group-hover:translate-x-1 transition-transform">Baca Panduan &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/artikel/profil-baja-wf-vs-h-beam" class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between group">
+        <div>
+          <PhotoSlot aspectRatio="16/9" label="Baja Profil WF" class="mb-4" />
+          <div class="flex items-center justify-between text-xs mb-2">
+            <span class="font-mono text-green-primary font-bold bg-[#E5F6E8] px-2 py-0.5 rounded">Baja Struktural</span>
+            <span class="text-gray-500 font-mono text-[11px]">5 mnt baca</span>
+          </div>
+          <h3 class="text-base font-bold text-ink mb-2 leading-snug group-hover:text-green-primary transition-colors">
+            Profil Baja WF vs H-Beam: Penentuan Momen Kolom & Balok Gudang
+          </h3>
+          <p class="text-xs text-ink opacity-80 line-clamp-3 mb-4">
+            Perbandingan distribusi momen aksial dan inersia penampang baja untuk struktur bentang lebar gudang dan bangunan industri.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-border-base flex justify-between items-center text-xs">
+          <span class="font-mono text-gray-500">SNI 2052:2017</span>
+          <span class="text-green-primary font-bold group-hover:translate-x-1 transition-transform">Baca Panduan &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/artikel/karakteristik-pasir-cor-pasang-urug" class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between group">
+        <div>
+          <PhotoSlot aspectRatio="16/9" label="Agregat & Pasir Cor" class="mb-4" />
+          <div class="flex items-center justify-between text-xs mb-2">
+            <span class="font-mono text-green-primary font-bold bg-[#E5F6E8] px-2 py-0.5 rounded">Batuan & Agregat</span>
+            <span class="text-gray-500 font-mono text-[11px]">5 mnt baca</span>
+          </div>
+          <h3 class="text-base font-bold text-ink mb-2 leading-snug group-hover:text-green-primary transition-colors">
+            Karakteristik Pasir Cor, Pasang & Urug: Pengaruh Kadar Lumpur pada Kuat Tekan Beton
+          </h3>
+          <p class="text-xs text-ink opacity-80 line-clamp-3 mb-4">
+            Pentingnya batas kandungan lumpur di bawah 5% untuk mencegah keretakan struktur dan pemborosan konsumsi semen.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-border-base flex justify-between items-center text-xs">
+          <span class="font-mono text-gray-500">ASTM C33</span>
+          <span class="text-green-primary font-bold group-hover:translate-x-1 transition-transform">Baca Panduan &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 08. FAQ AKORDEON 2 KOLOM (6 Butir) -->
+  <section id="faq" class="bg-surface-soft border-y border-border-base py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div>
+        <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">05 &mdash; TANYA JAWAB</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink">Pertanyaan Seputar Proses Pengadaan</h2>
+        <p class="text-xs sm:text-sm text-ink opacity-80 mt-2">Seluruh alur proses koordinasi dan administrasi dijabarkan secara transparan.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+          <summary class="flex items-center justify-between font-bold text-sm text-ink cursor-pointer list-none select-none">
+            <span>Apa yang perlu disiapkan saat menghubungi kami?</span>
+            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+            Cukup sampaikan lokasi proyek (kecamatan/kota), jenis dan mutu material yang dibutuhkan (contoh: Ready Mix K-300 atau Besi TS 420), estimasi volume, serta tanggal pengiriman yang diinginkan.
+          </p>
+        </details>
+
+        <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+          <summary class="flex items-center justify-between font-bold text-sm text-ink cursor-pointer list-none select-none">
+            <span>Bagaimana cara mendapatkan penawaran harga resmi?</span>
+            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+            Setelah rincian kebutuhan terkonfirmasi via WhatsApp, tim estimator kami akan menerbitkan dokumen penawaran resmi (BoQ/RAB) berkop surat resmi melalui korespondensi email resmi perusahaan.
+          </p>
+        </details>
+
+        <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+          <summary class="flex items-center justify-between font-bold text-sm text-ink cursor-pointer list-none select-none">
+            <span>Bagaimana penjadwalan ritase armada dilakukan?</span>
+            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+            Ritase armada (truk mixer, dump truck index 7/24, atau tronton) dijadwalkan berdasarkan konfirmasi PO dan kesiapan akses jalan proyek. Jadwal disepakati sebelum hari pengiriman.
+          </p>
+        </details>
+
+        <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+          <summary class="flex items-center justify-between font-bold text-sm text-ink cursor-pointer list-none select-none">
+            <span>Bagaimana proses verifikasi standar mutu SNI?</span>
+            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+            Setiap pengiriman material disertai dokumen kendali mutu seperti surat jalan berspesifikasi, sertifikat uji tarik pabrik (Mill Certificate), atau sertifikat uji tekan silinder laboratorium rekanan.
+          </p>
+        </details>
+
+        <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+          <summary class="flex items-center justify-between font-bold text-sm text-ink cursor-pointer list-none select-none">
+            <span>Apakah melayani pengadaan untuk tender proyek?</span>
+            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+            Ya. Kami menyediakan surat dukungan vendor dan kelengkapan administrasi pengadaan material untuk tender konstruksi BUMN maupun swasta melalui pengajuan resmi via email.
+          </p>
+        </details>
+
+        <details class="group border border-border-base rounded-[8px] bg-surface p-4 transition-colors">
+          <summary class="flex items-center justify-between font-bold text-sm text-ink cursor-pointer list-none select-none">
+            <span>Di mana saja cakupan wilayah pengiriman?</span>
+            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-green-light text-green-primary font-mono text-base transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <p class="text-xs text-ink opacity-85 mt-3 leading-relaxed border-t border-border-base pt-3">
+            Jangkauan distribusi reguler kami mencakup seluruh wilayah DKI Jakarta, Bogor, Depok, Tangerang Raya, Bekasi, serta Kawasan Industri Cikarang dan Karawang.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09. BANNER PENUTUP BERFOTO -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="rounded-[10px] bg-green-light border-t-2 border-green-primary border-x border-b border-border-base p-8 sm:p-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-8 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-black text-ink">Mulai Koordinasi Pengadaan Proyek Anda</h2>
+          <p class="text-xs sm:text-sm text-ink opacity-85 leading-relaxed max-w-xl">
+            Hubungi tim kami langsung via WhatsApp untuk ketersediaan armada, atau kirimkan rincian BoQ/RAB melalui email resmi untuk diterbitkan penawaran harga terikat.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <Button href={waHeroUrl} target="_blank">
+              <span>Konsultasi WhatsApp</span>
+            </Button>
+
+            <Button href={mailtoUrl} variant="secondary">
+              <span>Kirim BoQ via Email</span>
+            </Button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <PhotoSlot aspectRatio="4/3" label="Dukungan Pengadaan Lapangan" class="bg-surface" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

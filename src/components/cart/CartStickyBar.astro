@@ -1,0 +1,453 @@
+---
+import { OFFICIAL_PHONE } from '@/utils/links';
+---
+
+<!-- Sticky Bottom Bar Keranjang (Melayang di bawah layar saat ada item) -->
+<div 
+  id="cart-sticky-bar" 
+  class="fixed bottom-0 inset-x-0 z-40 bg-surface/95 backdrop-blur-md border-t-2 border-[#FFC700] shadow-[0_-8px_25px_rgba(0,0,0,0.12)] py-3 px-4 sm:px-6 transition-all duration-300 transform translate-y-full opacity-0 pointer-events-none"
+  aria-live="polite"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    
+    <!-- Info Ringkasan Item Terpilih -->
+    <div class="flex items-center gap-3">
+      <div class="relative w-10 h-10 rounded-[8px] bg-[#E5F6E8] text-[#0A4D2E] flex items-center justify-center shrink-0 border border-[#12A150]/30 shadow-inner">
+        <svg class="w-5 h-5 text-green-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span 
+          id="cart-bar-badge" 
+          class="absolute -top-1.5 -right-1.5 bg-[#FFC700] text-ink text-[10px] font-black font-mono w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-white shadow-sm"
+        >
+          0
+        </span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs sm:text-sm font-black text-ink">Keranjang Material Proyek</span>
+          <span id="cart-item-count-text" class="text-[11px] font-mono font-bold text-[#0A4D2E] bg-[#E5F6E8] px-2 py-0.5 rounded">
+            0 Item
+          </span>
+        </div>
+        <p id="cart-preview-text" class="text-[11px] text-ink/75 truncate max-w-xs sm:max-w-md hidden sm:block">
+          Material siap diajukan untuk penawaran resmi & armada kirim
+        </p>
+      </div>
+    </div>
+
+    <!-- Tombol Aksi Buka Review & Checkout WhatsApp -->
+    <div class="flex items-center gap-2.5">
+      <button
+        type="button"
+        id="btn-open-cart-modal"
+        class="bg-[#FFC700] hover:bg-[#E5B300] active:scale-98 text-ink font-bold text-xs sm:text-sm px-4 sm:px-6 py-2.5 rounded-[6px] shadow-sm inline-flex items-center gap-2 transition-all"
+      >
+        <svg class="w-4 h-4 text-ink shrink-0" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+        </svg>
+        <span>Lihat & Checkout WhatsApp</span>
+        <span class="text-xs">&rarr;</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Dialog Review Keranjang & Pengisian Detail Proyek (TANPA TAG FORM PUBLIK) -->
+<div 
+  id="cart-modal-backdrop" 
+  class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-200"
+>
+  <div 
+    id="cart-modal-card" 
+    class="w-full max-w-2xl bg-surface border border-border-base rounded-t-[20px] sm:rounded-[12px] shadow-2xl max-h-[90vh] flex flex-col overflow-hidden transform translate-y-8 sm:translate-y-0 sm:scale-95 transition-all duration-200"
+  >
+    
+    <!-- Modal Header -->
+    <div class="px-6 py-4 bg-surface-soft border-b border-border-base flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="w-3 h-3 rounded-full bg-[#FFC700]"></span>
+        <div>
+          <h3 class="text-base sm:text-lg font-black text-ink">Ringkasan Keranjang Material</h3>
+          <p class="text-xs text-ink/70">Daftar kebutuhan material untuk penawaran resmi CV. Serba Niaga Jaya</p>
+        </div>
+      </div>
+      <button 
+        type="button" 
+        id="btn-close-cart-modal" 
+        class="w-8 h-8 rounded-full border border-border-base flex items-center justify-center text-ink/70 hover:text-ink hover:bg-surface transition-colors"
+        aria-label="Tutup Keranjang"
+      >
+        <span class="text-xl leading-none">&times;</span>
+      </button>
+    </div>
+
+    <!-- Modal Body: Daftar Item Keranjang (Scrollable) -->
+    <div class="p-6 overflow-y-auto space-y-4 max-h-[45vh] divide-y divide-border-base">
+      <div id="cart-modal-items-container" class="space-y-3">
+        <!-- Item akan dirender secara dinamis oleh script -->
+      </div>
+
+      <!-- State Jika Keranjang Kosong -->
+      <div id="cart-modal-empty-state" class="py-12 text-center hidden">
+        <div class="w-12 h-12 mx-auto rounded-full bg-surface-soft border border-border-base flex items-center justify-center text-xl text-ink/40 mb-3">
+          🛒
+        </div>
+        <p class="text-sm font-bold text-ink">Keranjang belanja Anda masih kosong</p>
+        <p class="text-xs text-ink/65 mt-1">Pilih material dari katalog produk untuk menambahkan ke daftar pesanan.</p>
+      </div>
+    </div>
+
+    <!-- Modal Form: Detail Informasi Proyek & PIC (Menggunakan div/input, bukan tag form) -->
+    <div id="cart-modal-form-section" class="px-6 py-4 bg-surface-soft border-t border-border-base space-y-3">
+      <div class="text-[11px] font-mono font-bold text-[#0A4D2E] uppercase tracking-wider">
+        INFORMASI PENERIMA & LOKASI PROYEK (OPSIONAL)
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[11px] font-bold text-ink/80 mb-1" for="cart-input-pic">
+            Nama Pemesan / Perusahaan (PT/CV)
+          </label>
+          <input 
+            type="text" 
+            id="cart-input-pic" 
+            placeholder="Contoh: PT. Graha Wijaya / Bpk. Hendra" 
+            class="w-full text-xs px-3 py-2 rounded-[6px] border border-border-base bg-surface focus:outline-none focus:ring-2 focus:ring-[#FFC700] text-ink"
+          />
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-ink/80 mb-1" for="cart-input-location">
+            Lokasi Pengiriman Proyek (Kecamatan/Kota)
+          </label>
+          <input 
+            type="text" 
+            id="cart-input-location" 
+            placeholder="Contoh: Cikarang Barat, Kab. Bekasi" 
+            class="w-full text-xs px-3 py-2 rounded-[6px] border border-border-base bg-surface focus:outline-none focus:ring-2 focus:ring-[#FFC700] text-ink"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-bold text-ink/80 mb-1" for="cart-input-notes">
+          Catatan Tambahan / Akses Jalan
+        </label>
+        <input 
+          type="text" 
+          id="cart-input-notes" 
+          placeholder="Contoh: Butuh jadwal cor malam hari, jalan bisa dilalui truk tronton" 
+          class="w-full text-xs px-3 py-2 rounded-[6px] border border-border-base bg-surface focus:outline-none focus:ring-2 focus:ring-[#FFC700] text-ink"
+        />
+      </div>
+    </div>
+
+    <!-- Modal Footer Actions -->
+    <div class="px-6 py-3.5 bg-surface border-t border-border-base flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <button 
+          type="button" 
+          id="btn-clear-cart" 
+          class="text-xs text-red-600 hover:text-red-700 hover:underline font-semibold"
+        >
+          Kosongkan Keranjang
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+        <button 
+          type="button" 
+          id="btn-continue-shopping" 
+          class="px-4 py-2 rounded-[6px] border border-border-base text-xs font-bold text-ink hover:bg-surface-soft transition-colors"
+        >
+          Tambah Material Lain
+        </button>
+        <button 
+          type="button" 
+          id="btn-checkout-whatsapp" 
+          class="flex-1 sm:flex-initial bg-[#FFC700] hover:bg-[#E5B300] active:scale-98 text-ink font-bold text-xs py-2.5 px-5 rounded-[6px] inline-flex items-center justify-center gap-2 transition-all shadow-sm"
+        >
+          <svg class="w-4 h-4 text-ink shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+          </svg>
+          <span>Kirim List ke WhatsApp</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script define:vars={{ OFFICIAL_PHONE }}>
+  const CART_STORAGE_KEY = 'snj_cart_items_v1';
+
+  // State Management
+  function getCartItems() {
+    try {
+      const data = localStorage.getItem(CART_STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCartItems(items) {
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+      window.dispatchEvent(new CustomEvent('snj-cart-updated', { detail: items }));
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  // Update UI Elements
+  function renderCartState() {
+    const items = getCartItems();
+    const totalCount = items.reduce((sum, item) => sum + (Number(item.qty) || 1), 0);
+    const uniqueCount = items.length;
+
+    // Sticky Bar
+    const stickyBar = document.getElementById('cart-sticky-bar');
+    const badge = document.getElementById('cart-bar-badge');
+    const countText = document.getElementById('cart-item-count-text');
+    const previewText = document.getElementById('cart-preview-text');
+
+    // Header Cart Count
+    const headerCartBadge = document.getElementById('header-cart-count');
+    if (headerCartBadge) {
+      headerCartBadge.textContent = String(uniqueCount);
+      headerCartBadge.classList.toggle('hidden', uniqueCount === 0);
+    }
+
+    const mobileCartBadge = document.getElementById('mobile-cart-count');
+    if (mobileCartBadge) {
+      mobileCartBadge.textContent = String(uniqueCount);
+      mobileCartBadge.classList.toggle('hidden', uniqueCount === 0);
+    }
+
+    if (!stickyBar) return;
+
+    if (uniqueCount > 0) {
+      stickyBar.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+      if (badge) badge.textContent = String(uniqueCount);
+      if (countText) countText.textContent = `${uniqueCount} Jenis Material`;
+      if (previewText) {
+        const itemNames = items.slice(0, 2).map(i => `${i.name} (${i.qty} ${i.unit})`).join(', ');
+        previewText.textContent = uniqueCount > 2 ? `${itemNames}, +${uniqueCount - 2} lainnya` : itemNames;
+      }
+    } else {
+      stickyBar.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+    }
+
+    renderModalItems(items);
+  }
+
+  function renderModalItems(items) {
+    const container = document.getElementById('cart-modal-items-container');
+    const emptyState = document.getElementById('cart-modal-empty-state');
+    const formSection = document.getElementById('cart-modal-form-section');
+    const checkoutBtn = document.getElementById('btn-checkout-whatsapp');
+
+    if (!container || !emptyState) return;
+
+    if (items.length === 0) {
+      container.innerHTML = '';
+      emptyState.classList.remove('hidden');
+      if (formSection) formSection.classList.add('hidden');
+      if (checkoutBtn) checkoutBtn.setAttribute('disabled', 'true');
+      return;
+    }
+
+    emptyState.classList.add('hidden');
+    if (formSection) formSection.classList.remove('hidden');
+    if (checkoutBtn) checkoutBtn.removeAttribute('disabled');
+
+    container.innerHTML = items.map((item, index) => `
+      <div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface p-3 rounded-[8px] border border-border-base/70 hover:border-border-base transition-colors">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[9px] font-mono font-bold bg-[#E5F6E8] text-[#0A4D2E] px-1.5 py-0.5 rounded">
+              ${escapeHtml(item.unitBusiness || 'CV. SNJ')}
+            </span>
+            <span class="text-xs font-bold text-ink">${escapeHtml(item.name)}</span>
+          </div>
+          ${item.spec ? `<p class="text-[11px] text-ink/70 line-clamp-1">${escapeHtml(item.spec)}</p>` : ''}
+        </div>
+
+        <div class="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+          <!-- Stepper Kuantitas -->
+          <div class="flex items-center border border-border-base rounded-[6px] overflow-hidden bg-surface">
+            <button 
+              type="button" 
+              class="btn-cart-minus px-2.5 py-1 text-ink/70 hover:text-ink hover:bg-surface-soft font-bold text-xs" 
+              data-index="${index}"
+              aria-label="Kurangi Jumlah"
+            >
+              -
+            </button>
+            <span class="px-3 py-1 font-mono text-xs font-bold text-ink bg-surface-soft/50 min-w-[50px] text-center">
+              ${item.qty} <span class="text-[10px] font-normal text-ink/70">${escapeHtml(item.unit || '')}</span>
+            </span>
+            <button 
+              type="button" 
+              class="btn-cart-plus px-2.5 py-1 text-ink/70 hover:text-ink hover:bg-surface-soft font-bold text-xs" 
+              data-index="${index}"
+              aria-label="Tambah Jumlah"
+            >
+              +
+            </button>
+          </div>
+
+          <!-- Tombol Hapus -->
+          <button 
+            type="button" 
+            class="btn-cart-remove text-gray-400 hover:text-red-600 p-1.5 transition-colors" 
+            data-index="${index}"
+            title="Hapus Material"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    `).join('');
+
+    // Attach Stepper & Remove Event Handlers
+    container.querySelectorAll('.btn-cart-minus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-index'));
+        const currentItems = getCartItems();
+        if (currentItems[idx]) {
+          if (currentItems[idx].qty > 1) {
+            currentItems[idx].qty -= 1;
+          } else {
+            currentItems.splice(idx, 1);
+          }
+          saveCartItems(currentItems);
+          renderCartState();
+        }
+      });
+    });
+
+    container.querySelectorAll('.btn-cart-plus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-index'));
+        const currentItems = getCartItems();
+        if (currentItems[idx]) {
+          currentItems[idx].qty += 1;
+          saveCartItems(currentItems);
+          renderCartState();
+        }
+      });
+    });
+
+    container.querySelectorAll('.btn-cart-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-index'));
+        const currentItems = getCartItems();
+        if (currentItems[idx]) {
+          const removedName = currentItems[idx].name;
+          currentItems.splice(idx, 1);
+          saveCartItems(currentItems);
+          renderCartState();
+          window.dispatchEvent(new CustomEvent('snj-toast', { detail: `${removedName} dihapus dari keranjang` }));
+        }
+      });
+    });
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (m) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[m]));
+  }
+
+  // Modal Open/Close Controls
+  function openCartModal() {
+    const backdrop = document.getElementById('cart-modal-backdrop');
+    const card = document.getElementById('cart-modal-card');
+    if (!backdrop || !card) return;
+
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    card.classList.remove('translate-y-8', 'sm:scale-95');
+    renderModalItems(getCartItems());
+  }
+
+  function closeCartModal() {
+    const backdrop = document.getElementById('cart-modal-backdrop');
+    const card = document.getElementById('cart-modal-card');
+    if (!backdrop || !card) return;
+
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    card.classList.add('translate-y-8', 'sm:scale-95');
+  }
+
+  // Checkout WhatsApp Generator
+  function checkoutWhatsApp() {
+    const items = getCartItems();
+    if (items.length === 0) return;
+
+    const pic = (document.getElementById('cart-input-pic')?.value || '').trim();
+    const location = (document.getElementById('cart-input-location')?.value || '').trim();
+    const notes = (document.getElementById('cart-input-notes')?.value || '').trim();
+
+    let message = `Halo CV. Serba Niaga Jaya, saya ingin menanyakan ketersediaan dan penawaran resmi untuk daftar material berikut:\n\n`;
+    message += `DAFTAR PESANAN MATERIAL:\n`;
+    items.forEach((item, idx) => {
+      message += `${idx + 1}. ${item.name} [${item.unitBusiness || 'CV. SNJ'}] - ${item.qty} ${item.unit || ''}\n`;
+    });
+
+    if (pic || location || notes) {
+      message += `\nINFORMASI PENGIRIMAN PROYEK:\n`;
+      if (pic) message += `- Pemesan / PIC: ${pic}\n`;
+      if (location) message += `- Lokasi Proyek: ${location}\n`;
+      if (notes) message += `- Catatan: ${notes}\n`;
+    }
+
+    message += `\nMohon informasi ketersediaan ritase armada dan surat penawaran harga (SPH) resminya. Terima kasih!`;
+
+    const waUrl = `https://wa.me/${OFFICIAL_PHONE}?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank');
+  }
+
+  // Initial Event Bindings
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCartState();
+
+    document.getElementById('btn-open-cart-modal')?.addEventListener('click', openCartModal);
+    document.getElementById('btn-close-cart-modal')?.addEventListener('click', closeCartModal);
+    document.getElementById('btn-continue-shopping')?.addEventListener('click', closeCartModal);
+
+    // Global listener for Header Cart button
+    document.getElementById('header-cart-btn')?.addEventListener('click', openCartModal);
+    document.getElementById('mobile-cart-btn')?.addEventListener('click', openCartModal);
+
+    // Backdrop click to close
+    document.getElementById('cart-modal-backdrop')?.addEventListener('click', (e) => {
+      if (e.target === document.getElementById('cart-modal-backdrop')) {
+        closeCartModal();
+      }
+    });
+
+    // Clear Cart
+    document.getElementById('btn-clear-cart')?.addEventListener('click', () => {
+      saveCartItems([]);
+      renderCartState();
+      window.dispatchEvent(new CustomEvent('snj-toast', { detail: 'Keranjang belanja dikosongkan' }));
+    });
+
+    // Checkout
+    document.getElementById('btn-checkout-whatsapp')?.addEventListener('click', checkoutWhatsApp);
+
+    // Listen to cart updates from any product cards
+    window.addEventListener('snj-cart-updated', () => {
+      renderCartState();
+    });
+  });
+</script>

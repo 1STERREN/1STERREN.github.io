@@ -1,0 +1,21 @@
+---
+---
+<div id="toast" class="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-50 bg-surface border border-green-primary rounded-[6px] px-4 py-3 shadow-md flex items-center gap-2 text-xs font-bold text-ink transform translate-y-16 opacity-0 pointer-events-none transition-all duration-200">
+  <span class="text-green-primary font-black">✓</span>
+  <span id="toast-message">Kode spesifikasi disalin ke clipboard</span>
+</div>
+
+<script>
+  window.addEventListener('snj-toast', (e: Event) => {
+    const customEvent = e as CustomEvent<string>;
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-message');
+    if (toast && toastMsg && customEvent.detail) {
+      toastMsg.textContent = customEvent.detail;
+      toast.classList.remove('translate-y-16', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-16', 'opacity-0', 'pointer-events-none');
+      }, 2400);
+    }
+  });
+</script>

@@ -1,0 +1,116 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/Button.astro';
+import { createWhatsAppUrl, createBoQMailtoUrl, OFFICIAL_PHONE_DISPLAY, OFFICIAL_EMAIL } from '@/utils/links';
+
+const waUrl = createWhatsAppUrl("Halo CV. Serba Niaga Jaya, saya ingin konsultasi pengadaan material untuk proyek.");
+const mailtoUrl = createBoQMailtoUrl("Permintaan Penawaran Resmi");
+
+// Placeholder alamat & jam operasional (bertanda TODO)
+// TODO: Alamat lengkap kantor menunggu konfirmasi pemilik
+const ALAMAT_KANTOR = "Kawasan Sentra Niaga, Jl. Raya Industri No. 88, Bekasi, Jawa Barat [Placeholder Alamat Kantor]";
+// TODO: Jam operasional pasti menunggu konfirmasi pemilik
+const JAM_OPERASIONAL = "Senin - Sabtu: 08.00 - 17.00 WIB [Placeholder Jam Operasional]";
+---
+
+<Layout title="Kontak & Layanan Pengadaan | CV. Serba Niaga Jaya">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="mb-12 text-center max-w-3xl mx-auto">
+      <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-2">JALUR RESMI PENGADAAN</div>
+      <h1 class="text-3xl sm:text-4xl font-black text-ink mb-4">Kontak Layanan Pelanggan</h1>
+      <p class="text-sm sm:text-base text-ink opacity-85 leading-relaxed">
+        Pemesanan dan konsultasi material konstruksi langsung melalui jalur resmi terverifikasi tanpa formulir isian panjang di web.
+      </p>
+    </div>
+
+    <!-- Tombol WhatsApp Besar & Jalur Komunikasi Utama -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+      
+      <!-- Kartu WhatsApp Utama (Tombol Besar) -->
+      <div class="border-2 border-[#FFC700] rounded-[8px] bg-surface p-6 sm:p-8 flex flex-col justify-between industrial-card shadow-sm">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#FFC700]/20 text-[#111111] font-mono text-xs font-bold mb-4">
+            JALUR CEPAT KONSULTASI LAPANGAN
+          </div>
+          <h2 class="text-2xl font-black text-ink mb-2">WhatsApp Official</h2>
+          <p class="text-xs sm:text-sm text-ink opacity-80 leading-relaxed mb-6">
+            Konsultasi mutu material teknis, pengecekan jadwal ritase armada (mixer, dump truck), serta konfirmasi akses jalan proyek.
+          </p>
+          <div class="font-mono text-xl sm:text-2xl font-black text-ink mb-6">
+            {OFFICIAL_PHONE_DISPLAY}
+          </div>
+        </div>
+
+        <a 
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full bg-[#FFC700] hover:bg-[#E5B300] text-[#111111] font-black text-base py-4 px-6 rounded-[8px] inline-flex items-center justify-center gap-3 transition-all duration-150 active:scale-98 shadow-md"
+        >
+          <svg class="w-6 h-6 text-[#111111]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+          </svg>
+          <span>Chat via WhatsApp Sekarang &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Kartu Email BoQ Resmi -->
+      <div class="border border-border-base rounded-[8px] bg-surface p-6 sm:p-8 flex flex-col justify-between industrial-card">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#E5F6E8] text-[#0F7B3F] font-mono text-xs font-bold mb-4">
+            PENGAJUAN BERKAS & PENAWARAN RESMI
+          </div>
+          <h2 class="text-2xl font-black text-ink mb-2">Email BoQ / Tender</h2>
+          <p class="text-xs sm:text-sm text-ink opacity-80 leading-relaxed mb-6">
+            Penerbitan surat penawaran harga resmi (SPH), lampiran berkas BoQ, Purchase Order (PO), serta permintaan verifikasi izin usaha.
+          </p>
+          <div class="font-mono text-lg sm:text-xl font-bold text-ink mb-6">
+            {OFFICIAL_EMAIL}
+          </div>
+        </div>
+
+        <Button href={mailtoUrl} variant="secondary" class="w-full py-4 text-sm justify-center">
+          Kirim Berkas BoQ via Email &rarr;
+        </Button>
+      </div>
+    </div>
+
+    <!-- Informasi Kantor, Jam Layanan & Area Layanan Jabodetabek (Tanpa Peta Embed) -->
+    <div class="border border-border-base rounded-[8px] bg-surface-soft p-6 sm:p-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Alamat Kantor (Placeholder) -->
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider block">ALAMAT OPERASIONAL</span>
+          <h3 class="text-base font-bold text-ink">Kantor Operasional</h3>
+          <!-- TODO: Alamat lengkap kantor menunggu konfirmasi pemilik -->
+          <p class="text-xs sm:text-sm text-ink opacity-80 leading-relaxed">
+            {ALAMAT_KANTOR}
+          </p>
+        </div>
+
+        <!-- Jam Operasional (Placeholder) -->
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider block">WAKTU LAYANAN</span>
+          <h3 class="text-base font-bold text-ink">Jam Operasional</h3>
+          <!-- TODO: Jam operasional menunggu konfirmasi pemilik -->
+          <p class="text-xs sm:text-sm text-ink opacity-80 leading-relaxed">
+            {JAM_OPERASIONAL}
+          </p>
+          <p class="text-[11px] text-gray-500 italic">
+            *Pengecoran malam dan pengiriman hari libur dapat dikoordinasikan sebelumnya.
+          </p>
+        </div>
+
+        <!-- Area Layanan Jabodetabek -->
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider block">WILAYAH DISTRIBUSI</span>
+          <h3 class="text-base font-bold text-ink">Area Layanan Proyek</h3>
+          <p class="text-xs sm:text-sm text-ink opacity-80 leading-relaxed">
+            Melayani seluruh wilayah Jabodetabek: DKI Jakarta, Bogor, Depok, Tangerang Raya, Bekasi, serta koridor industri Cikarang dan Karawang.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,86 @@
+{
+  "category": "baja",
+  "unitBusinessName": "NIAGA BAJA",
+  "categoryName": "Niaga Baja",
+  "slug": "niaga-baja",
+  "description": "Niaga Baja menyediakan besi beton, baja profil, pipa, dan sistem atap untuk kebutuhan konstruksi, dengan ketahanan struktural dan efisiensi biaya.",
+  "datasheetUrl": null,
+  "sections": [
+    {
+      "title": "Besi Beton & Wiremesh",
+      "items": [
+        {
+          "name": "Besi Beton Polos (TP 280 / S240, diameter 6-32 mm)",
+          "description": "Tulangan polos untuk begel, sengkang, dan struktur standar."
+        },
+        {
+          "name": "Besi Beton Ulir (TS 280 / TS 420 / S400, standar SNI)",
+          "description": "Tulangan sirip berkekuatan tarik tinggi untuk struktur utama balok dan kolom."
+        },
+        {
+          "name": "Wiremesh lembaran & rol (M4, M5, M6, M7, M8, M10, M12)",
+          "description": "Jaring kawat baja las untuk pembesian pelat lantai, dak beton, dan jalan beton."
+        }
+      ]
+    },
+    {
+      "title": "Pipa & Profil Hollow",
+      "items": [
+        {
+          "name": "Pipa Galvanis (GIP) & Pipa Hitam (Black Pipe)",
+          "description": "Instalasi saluran pipa fluida, struktur pagar, dan konstruksi mekanikal."
+        },
+        {
+          "name": "Besi Hollow Hitam & Hollow Galvanis/Galvalum",
+          "description": "Rangka plafon, partisi dinding, kanopi, dan pagar minimalis."
+        },
+        {
+          "name": "Pipa Seamless & Pipa Pancang",
+          "description": "Pipa baja tanpa sambungan bertekanan tinggi dan tiang fondasi pancang."
+        }
+      ]
+    },
+    {
+      "title": "Baja Profil & Struktur Berat",
+      "items": [
+        {
+          "name": "Besi WF (Wide Flange) & H-Beam",
+          "description": "Balok pemikul momen dan kolom struktur bentang lebar gudang/pabrik."
+        },
+        {
+          "name": "Besi Siku (Angle Bar)",
+          "description": "Struktur rangka bracing, tangga, tower, dan pengaku."
+        },
+        {
+          "name": "Besi CNP (Channel C) & UNP (Channel U)",
+          "description": "Gording atap, rangka penopang dinding, dan balok sekunder."
+        },
+        {
+          "name": "Plat Hitam (SS400), Plat Kapal, & Plat Bordes",
+          "description": "Lembaran plat baja struktural, plat lantai bordes anti-slip, dan fabrikasi mesin."
+        }
+      ]
+    },
+    {
+      "title": "Sistem Atap & Penutup",
+      "items": [
+        {
+          "name": "Atap Alderon (uPVC Twinwall & Singlewall)",
+          "description": "Penutup atap peredam panas dan suara kimiawi tahan karat."
+        },
+        {
+          "name": "Atap Polycarbonate (Solartuff, Solarflat, TwinLite, dll.)",
+          "description": "Penutup atap transparan tembus cahaya tahan benturan cuaca."
+        },
+        {
+          "name": "Atap Spandek/Galvalum (polos, pasir, lengkung)",
+          "description": "Lembaran atap profil gelombang kuat dan ringan."
+        },
+        {
+          "name": "Genteng Metal & Baja Ringan",
+          "description": "(TODO: detail varian baja ringan menunggu konfirmasi pemilik, jangan ditebak.)"
+        }
+      ]
+    }
+  ]
+}

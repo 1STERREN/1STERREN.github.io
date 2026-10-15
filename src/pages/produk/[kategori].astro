@@ -1,0 +1,30 @@
+---
+import DivisionPage from '@/components/templates/DivisionPage.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map(p => ({
+    params: { kategori: p.data.category },
+    props: { productCategory: p.data }
+  }));
+}
+
+const { productCategory } = Astro.props;
+
+const photoMap: Record<string, string> = {
+  beton: '/images/foto-beton-readymix.jpg',
+  baja: '/images/foto-baja-rebar.jpg',
+  aspal: '/images/foto-aspal-hotmix.jpg',
+  batuan: '/images/foto-batuan-agregat.jpg',
+};
+---
+
+<DivisionPage 
+  unitBusinessName={productCategory.unitBusinessName}
+  category={productCategory.category}
+  description={productCategory.description}
+  sections={productCategory.sections}
+  datasheetUrl={productCategory.datasheetUrl}
+  photoSrc={photoMap[productCategory.category]}
+/>

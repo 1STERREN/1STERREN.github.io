@@ -1,0 +1,77 @@
+---
+import Header from '@/components/layout/Header.astro';
+import MobileDrawer from '@/components/layout/MobileDrawer.astro';
+import MobileBottomBar from '@/components/layout/MobileBottomBar.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Toast from '@/components/ui/Toast.astro';
+import CartStickyBar from '@/components/cart/CartStickyBar.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "CV. Serba Niaga Jaya | Supplier Material Konstruksi Terpadu",
+  description = "Pemasok terpercaya untuk beton mutu tinggi, baja tulangan bersertifikat, aspal hotmix, dan agregat batuan standar SNI di Jabodetabek, Cikarang, dan Karawang."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body class="bg-surface text-ink pb-24 md:pb-0 selection:bg-yellow-light selection:text-ink">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress-bar" class="fixed top-0 left-0 right-0 h-[3px] bg-[#FFC700] z-50 transform scale-x-0 origin-left transition-transform duration-75"></div>
+
+  <Header />
+  <MobileDrawer />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+  <MobileBottomBar />
+  <CartStickyBar />
+  <Toast />
+
+  <script>
+    // Header Resize & Scroll Progress Bar
+    const progressBar = document.getElementById('scroll-progress-bar');
+    const headerContainer = document.getElementById('header-container');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+
+    menuBtn?.addEventListener('click', () => {
+      drawer?.classList.toggle('hidden');
+    });
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (currentScrollY / docHeight) : 0;
+      
+      if (progressBar) {
+        progressBar.style.transform = `scaleX(${progress})`;
+      }
+
+      if (currentScrollY > 60) {
+        headerContainer?.classList.remove('h-20');
+        headerContainer?.classList.add('h-16');
+      } else {
+        headerContainer?.classList.remove('h-16');
+        headerContainer?.classList.add('h-20');
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>

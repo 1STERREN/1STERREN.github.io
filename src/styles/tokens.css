@@ -1,0 +1,29 @@
+:root {
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #F3F8EE;
+  --color-green-dark: #0A4D2E;
+  --color-green-primary: #12A150;
+  --color-green-light: #E5F6E8;
+  --color-yellow-safety: #FFC700;
+  --color-yellow-dark: #E5B300;
+  --color-yellow-light: #FFF7CC;
+  --color-ink: #111111;
+  --color-border: #DDE8D9;
+  --color-panel-feature: #0A4D2E;
+
+  --dur-instant: 100ms;
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+  --dur-slow: 450ms;
+  --ease-out-spec: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-spec: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

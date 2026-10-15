@@ -1,0 +1,203 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/Button.astro';
+import PhotoSlot from '@/components/ui/PhotoSlot.astro';
+import { createBoQMailtoUrl, OFFICIAL_EMAIL } from '@/utils/links';
+
+const mailtoUrl = createBoQMailtoUrl("Permohonan Verifikasi Dokumen Legalitas");
+
+// Slot opsional gambar dokumen sensor (disembunyikan sampai ada file)
+const censoredDocImage = null;
+---
+
+<Layout title="Profil Perusahaan & Legalitas | CV. Serba Niaga Jaya">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    
+    <!-- 1. PROFIL PERUSAHAAN -->
+    <div class="max-w-4xl mb-14">
+      <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-2">PROFIL PERUSAHAAN</div>
+      <h1 class="text-3xl sm:text-4xl font-black text-ink mb-4">CV. Serba Niaga Jaya</h1>
+      <p class="text-base sm:text-lg text-ink opacity-90 leading-relaxed border-l-4 border-[#FFC700] pl-4">
+        CV. Serba Niaga Jaya adalah perusahaan penyedia bahan bangunan, material konstruksi, dan produk infrastruktur terpadu yang melayani kebutuhan proyek kecil hingga menengah di wilayah Jabodetabek, bagi kontraktor, developer, instansi, maupun konsumen perorangan. Kami berkomitmen pada kualitas dan ketepatan waktu.
+      </p>
+    </div>
+
+    <!-- 2. VISI & MISI -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+      <!-- Visi -->
+      <div class="lg:col-span-5 border border-border-base rounded-[8px] bg-surface p-6 sm:p-8 flex flex-col justify-between industrial-card">
+        <div>
+          <span class="text-xs font-mono font-bold text-[#0F7B3F] bg-[#E5F6E8] px-2.5 py-1 rounded inline-block mb-3">
+            VISI PERUSAHAAN
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-ink mb-4">Visi Utama</h2>
+          <p class="text-sm sm:text-base text-ink opacity-85 leading-relaxed">
+            Menjadi penyedia material konstruksi dan infrastruktur yang terpercaya dan lengkap, dimulai dari Jabodetabek, melalui produk berkualitas, layanan profesional, dan distribusi yang handal.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-border-base text-xs font-mono text-gray-500">
+          Integritas Mutu & Layanan Profesional
+        </div>
+      </div>
+
+      <!-- Misi (4 Poin) -->
+      <div class="lg:col-span-7 border border-border-base rounded-[8px] bg-surface p-6 sm:p-8 industrial-card">
+        <span class="text-xs font-mono font-bold text-[#0F7B3F] bg-[#E5F6E8] px-2.5 py-1 rounded inline-block mb-3">
+          EMPAT PILAR MISI
+        </span>
+        <h2 class="text-xl sm:text-2xl font-black text-ink mb-6">Misi Operasional</h2>
+        
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <span class="w-8 h-8 rounded bg-[#FFC700] text-[#111111] text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              01
+            </span>
+            <div>
+              <h3 class="text-sm font-bold text-ink">Standar SNI & Harga Kompetitif</h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed mt-0.5">
+                Menyediakan pilihan material bangunan standar SNI dengan harga kompetitif.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-8 h-8 rounded bg-[#FFC700] text-[#111111] text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              02
+            </span>
+            <div>
+              <h3 class="text-sm font-bold text-ink">Unit Bisnis Terspesialisasi</h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed mt-0.5">
+                Mengembangkan unit bisnis terspesialisasi untuk keahlian dan kepuasan pelanggan di tiap lini produk.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-8 h-8 rounded bg-[#FFC700] text-[#111111] text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              03
+            </span>
+            <div>
+              <h3 class="text-sm font-bold text-ink">Rantai Pasok & Distribusi Efisien</h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed mt-0.5">
+                Membangun rantai pasok dan armada distribusi yang efisien agar pengiriman tepat waktu.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-8 h-8 rounded bg-[#FFC700] text-[#111111] text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              04
+            </span>
+            <div>
+              <h3 class="text-sm font-bold text-ink">Kemitraan Jangka Panjang</h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed mt-0.5">
+                Mengedepankan kemitraan jangka panjang berbasis transparansi, integritas, dan pelayanan profesional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. SEKSI LEGALITAS RESMI -->
+    <div id="legalitas" class="scroll-mt-24 border border-border-base rounded-[8px] bg-surface-soft p-6 sm:p-8 mb-16">
+      <div class="max-w-3xl mb-8">
+        <span class="text-xs font-mono font-bold text-[#0F7B3F] bg-[#E5F6E8] px-2.5 py-1 rounded inline-block mb-3">
+          VERIFIKASI ADMINISTRASI
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink mb-2">Informasi Legalitas Usaha</h2>
+        <p class="text-xs sm:text-sm text-ink opacity-85 leading-relaxed">
+          CV. Serba Niaga Jaya menjunjung tinggi kepatuhan administrasi dan integritas data tender. Kami tidak menampilkan scan dokumen mentah ke publik demi mencegah penyalahgunaan berkas perizinan resmi.
+        </p>
+      </div>
+
+      <!-- Kartu Ringkas Legalitas (Placeholder bertanda TODO) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div class="border border-border-base rounded-[6px] bg-surface p-4">
+          <span class="text-[11px] font-mono text-gray-500 uppercase block mb-1">Nama Badan Usaha</span>
+          <span class="text-sm font-bold text-ink">CV. Serba Niaga Jaya</span>
+        </div>
+
+        <div class="border border-border-base rounded-[6px] bg-surface p-4">
+          <span class="text-[11px] font-mono text-gray-500 uppercase block mb-1">Bentuk Usaha</span>
+          <span class="text-sm font-bold text-ink">Persekutuan Komanditer (CV)</span>
+        </div>
+
+        <div class="border border-border-base rounded-[6px] bg-surface p-4">
+          <span class="text-[11px] font-mono text-gray-500 uppercase block mb-1">Tahun Berdiri</span>
+          <!-- TODO: Tahun berdiri menunggu konfirmasi dokumen resmi dari pemilik -->
+          <span class="text-sm font-mono font-bold text-ink">[Tahun Berdiri - Terverifikasi]</span>
+        </div>
+
+        <div class="border border-border-base rounded-[6px] bg-surface p-4">
+          <span class="text-[11px] font-mono text-gray-500 uppercase block mb-1">Nomor Induk Berusaha (NIB)</span>
+          <!-- TODO: Nomor NIB menunggu konfirmasi dari pemilik -->
+          <span class="text-sm font-mono font-bold text-ink">[NIB Terdaftar OSS RBA]</span>
+        </div>
+
+        <div class="border border-border-base rounded-[6px] bg-surface p-4 sm:col-span-2">
+          <span class="text-[11px] font-mono text-gray-500 uppercase block mb-1">Izin Usaha & KBLI Pengadaan</span>
+          <!-- TODO: Daftar izin usaha dan KBLI lengkap menunggu konfirmasi pemilik -->
+          <span class="text-sm font-bold text-ink">[Perdagangan Besar Bahan Konstruksi & Perlengkapan]</span>
+        </div>
+      </div>
+
+      <!-- Slot Opsional Gambar Dokumen Versi Sensor (Tersembunyi sampai ada file) -->
+      {censoredDocImage && (
+        <div class="mb-8">
+          <PhotoSlot 
+            aspectRatio="16/9"
+            label="Dokumen Legalitas Resmi (Versi Sensor)"
+            src={censoredDocImage}
+          />
+        </div>
+      )}
+
+      <!-- Kalimat Wajib & Tombol Email -->
+      <div class="bg-surface border border-border-base rounded-[6px] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <p class="text-xs sm:text-sm font-bold text-ink leading-relaxed">
+          Dokumen lengkap tersedia untuk keperluan verifikasi atas permintaan resmi melalui email kami.
+        </p>
+        <Button href={mailtoUrl} class="shrink-0 text-xs py-2.5 px-4">
+          Kirim Permintaan ke {OFFICIAL_EMAIL}
+        </Button>
+      </div>
+    </div>
+
+    <!-- 4. WILAYAH JANGKAUAN LOGISTIK JABODETABEK -->
+    <div class="border border-border-base rounded-[8px] bg-surface p-6 sm:p-8">
+      <span class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1 block">CAKUPAN OPERASIONAL</span>
+      <h2 class="text-xl sm:text-2xl font-black text-ink mb-2">Wilayah Layanan Proyek Jabodetabek</h2>
+      <p class="text-xs sm:text-sm text-ink opacity-85 leading-relaxed mb-6">
+        Distribusi langsung armada mixer, dump truck, dan ekspedisi material di seluruh zona strategis:
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
+        <div class="border border-border-base rounded p-3 bg-surface-soft">
+          <span class="text-xs font-bold text-ink block">DKI Jakarta</span>
+          <span class="text-[10px] font-mono text-gray-500">Semua Wilayah</span>
+        </div>
+        <div class="border border-border-base rounded p-3 bg-surface-soft">
+          <span class="text-xs font-bold text-ink block">Bekasi</span>
+          <span class="text-[10px] font-mono text-gray-500">Kota & Kabupaten</span>
+        </div>
+        <div class="border border-border-base rounded p-3 bg-surface-soft">
+          <span class="text-xs font-bold text-ink block">Bogor</span>
+          <span class="text-[10px] font-mono text-gray-500">Kota & Kabupaten</span>
+        </div>
+        <div class="border border-border-base rounded p-3 bg-surface-soft">
+          <span class="text-xs font-bold text-ink block">Depok</span>
+          <span class="text-[10px] font-mono text-gray-500">Seluruh Kecamatan</span>
+        </div>
+        <div class="border border-border-base rounded p-3 bg-surface-soft">
+          <span class="text-xs font-bold text-ink block">Tangerang</span>
+          <span class="text-[10px] font-mono text-gray-500">Kota, Kab & Tangsel</span>
+        </div>
+        <div class="border border-border-base rounded p-3 bg-surface-soft">
+          <span class="text-xs font-bold text-ink block">Cikarang & Karawang</span>
+          <span class="text-[10px] font-mono text-gray-500">Kawasan Industri</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

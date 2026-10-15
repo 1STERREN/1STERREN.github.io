@@ -1,0 +1,37 @@
+---
+interface Props {
+  code: string;
+  copyable?: boolean;
+  class?: string;
+}
+const { code, copyable = true, class: className = '' } = Astro.props;
+---
+<button 
+  type="button" 
+  class={`spec-chip font-mono text-xs px-2.5 py-1 rounded-[6px] border border-[#DDE8D9] bg-[#E5F6E8] text-[#111111] hover:border-[#12A150] transition-colors duration-150 inline-flex items-center gap-1.5 cursor-pointer font-bold ${className}`}
+  data-copy={code}
+  title={copyable ? "Klik untuk menyalin kode spesifikasi" : undefined}
+>
+  <span>{code}</span>
+  <span class="chip-status text-[10px] text-[#12A150] hidden">✓</span>
+</button>
+
+<script>
+  document.querySelectorAll('.spec-chip').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        const status = btn.querySelector('.chip-status');
+        if (status) {
+          status.classList.remove('hidden');
+          setTimeout(() => status.classList.add('hidden'), 1200);
+        }
+        window.dispatchEvent(new CustomEvent('snj-toast', { detail: `Kode spesifikasi "${text}" tersalin!` }));
+      } catch (e) {
+        console.error('Clipboard copy failed', e);
+      }
+    });
+  });
+</script>

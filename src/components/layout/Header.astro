@@ -1,0 +1,417 @@
+---
+import { createWhatsAppUrl } from '@/utils/links';
+const waUrl = createWhatsAppUrl();
+const pathname = Astro.url.pathname;
+---
+
+<header id="site-header" class="sticky top-0 z-40 bg-surface border-b border-border-base transition-all duration-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" id="header-container">
+    
+    <!-- Logo Resmi SNJ -->
+    <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#FFC700] rounded">
+      <img src="/logo.png" alt="CV. Serba Niaga Jaya" class="h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.02]">
+    </a>
+
+    <!-- Desktop Navigasi -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a 
+        href="/" 
+        class={`text-sm py-2 transition-colors ${pathname === '/' ? 'font-bold text-ink border-b-2 border-[#FFC700]' : 'font-semibold text-ink/80 hover:text-green-primary'}`}
+      >
+        Beranda
+      </a>
+      <!-- Menu Dropdown Katalog Produk (Mega-Menu Luas & Informatif) -->
+      <div class="relative group">
+        <a 
+          href="/produk" 
+          class={`text-sm py-2 inline-flex items-center gap-1.5 transition-colors ${pathname.startsWith('/produk') || pathname.startsWith('/niaga-') ? 'font-bold text-ink border-b-2 border-[#FFC700]' : 'font-semibold text-ink/80 hover:text-green-primary'}`}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>Katalog Produk</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+
+        <!-- Submenu Mega-Dropdown Panel (Luas, Multi-Kolom, Kaya Informasi Material & Layanan) -->
+        <div class="absolute -left-20 md:-left-36 lg:-left-44 xl:-left-56 top-full pt-2.5 w-[760px] md:w-[840px] lg:w-[940px] xl:w-[980px] opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+          <div class="bg-surface border border-border-base rounded-[12px] shadow-2xl overflow-hidden ring-1 ring-black/5">
+            
+            <!-- Header Bar Mega-Menu -->
+            <div class="px-6 py-3.5 bg-surface-soft border-b border-border-base flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#0A4D2E] text-white tracking-wide uppercase">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#FFC700] animate-pulse"></span>
+                  4 UNIT BISNIS RESMI
+                </span>
+                <span class="text-xs text-ink/80 font-medium hidden sm:inline">
+                  Distribusi Material Konstruksi Standar SNI & Spesifikasi Bina Marga Jabodetabek & Karawang
+                </span>
+              </div>
+              <div class="flex items-center gap-4">
+                <a 
+                  href="/produk" 
+                  class="text-xs font-bold text-green-primary hover:text-[#0A4D2E] hover:underline inline-flex items-center gap-1 group/link"
+                >
+                  <span>Buka Semua Katalog</span>
+                  <span class="transition-transform group-hover/link:translate-x-0.5">&rarr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Body Grid: 4 Unit Bisnis Produk (8 Kolom) + Hub Dukungan Teknis & Logistik (4 Kolom) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 bg-surface">
+              
+              <!-- Kolom Kiri: 4 Unit Bisnis Utama (2x2 Grid) -->
+              <div class="lg:col-span-8 p-5 grid grid-cols-1 sm:grid-cols-2 gap-3.5 bg-surface">
+                
+                <!-- 01. Niaga Beton -->
+                <div class="p-4 rounded-[10px] border border-border-base/80 bg-surface hover:bg-[#E5F6E8]/25 hover:border-[#12A150]/60 transition-all flex flex-col justify-between group/beton">
+                  <div>
+                    <div class="flex items-center justify-between mb-2">
+                      <a href="/niaga-beton" class="text-xs font-black text-ink group-hover/beton:text-green-primary transition-colors flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FFC700] ring-2 ring-[#FFC700]/30"></span>
+                        NIAGA BETON
+                      </a>
+                      <span class="text-[10px] font-mono font-bold text-[#0A4D2E] bg-[#E5F6E8] px-2 py-0.5 rounded border border-[#12A150]/20">
+                        K-100 s/d K-500
+                      </span>
+                    </div>
+                    <p class="text-[11px] text-ink/75 leading-relaxed mb-3">
+                      Beton cor ready mix mutu tinggi, precast drainase presisi, & armada pompa beton jangkauan luas.
+                    </p>
+
+                    <!-- Sub-kategori / Item Populer -->
+                    <div class="space-y-1 mb-3 pt-2 border-t border-border-base/50">
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Ready Mix:</strong> Cor dak K-225/K-300, jalan K-350 s/d K-500</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Precast:</strong> U-Ditch, Cover HD/LD, Box Culvert & Kanstin</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Pompa:</strong> Pompa Standar, Mini (gang), Longboom & Kodok</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-2 border-t border-border-base/50 flex items-center justify-between">
+                    <span class="text-[10px] font-mono text-gray-500">Molen 7m³ & Minimix 3m³</span>
+                    <a href="/niaga-beton" class="text-[11px] font-bold text-green-primary group-hover/beton:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
+                      <span>Detail Unit</span>
+                      <span>&rarr;</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 02. Niaga Baja -->
+                <div class="p-4 rounded-[10px] border border-border-base/80 bg-surface hover:bg-[#E5F6E8]/25 hover:border-[#12A150]/60 transition-all flex flex-col justify-between group/baja">
+                  <div>
+                    <div class="flex items-center justify-between mb-2">
+                      <a href="/niaga-baja" class="text-xs font-black text-ink group-hover/baja:text-green-primary transition-colors flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FFC700] ring-2 ring-[#FFC700]/30"></span>
+                        NIAGA BAJA
+                      </a>
+                      <span class="text-[10px] font-mono font-bold text-[#0A4D2E] bg-[#E5F6E8] px-2 py-0.5 rounded border border-[#12A150]/20">
+                        BjTS 420 & WF
+                      </span>
+                    </div>
+                    <p class="text-[11px] text-ink/75 leading-relaxed mb-3">
+                      Besi tulangan struktur bersertifikat SNI, wiremesh cor, baja profil berat, dan sistem atap uPVC.
+                    </p>
+
+                    <!-- Sub-kategori / Item Populer -->
+                    <div class="space-y-1 mb-3 pt-2 border-t border-border-base/50">
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Besi Beton:</strong> Polos TP280 & Ulir TS420 SNI (D10 - D32)</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Wiremesh:</strong> M4 s/d M12 lembar & rol plat lantai cor</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Profil & Atap:</strong> WF, H-Beam, Pipa Hollow & Alderon uPVC</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-2 border-t border-border-base/50 flex items-center justify-between">
+                    <span class="text-[10px] font-mono text-gray-500">Mill Sheet Sertifikat SNI</span>
+                    <a href="/niaga-baja" class="text-[11px] font-bold text-green-primary group-hover/baja:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
+                      <span>Detail Unit</span>
+                      <span>&rarr;</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 03. Niaga Aspal -->
+                <div class="p-4 rounded-[10px] border border-border-base/80 bg-surface hover:bg-[#E5F6E8]/25 hover:border-[#12A150]/60 transition-all flex flex-col justify-between group/aspal">
+                  <div>
+                    <div class="flex items-center justify-between mb-2">
+                      <a href="/niaga-aspal" class="text-xs font-black text-ink group-hover/aspal:text-green-primary transition-colors flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FFC700] ring-2 ring-[#FFC700]/30"></span>
+                        NIAGA ASPAL
+                      </a>
+                      <span class="text-[10px] font-mono font-bold text-[#0A4D2E] bg-[#E5F6E8] px-2 py-0.5 rounded border border-[#12A150]/20">
+                        Bina Marga Rev 3
+                      </span>
+                    </div>
+                    <p class="text-[11px] text-ink/75 leading-relaxed mb-3">
+                      Material hotmix jalan raya & kawasan industri, aspal emulsi perekat, drum, serta jasa gelar profesional.
+                    </p>
+
+                    <!-- Sub-kategori / Item Populer -->
+                    <div class="space-y-1 mb-3 pt-2 border-t border-border-base/50">
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Hotmix:</strong> AC-WC (lapis aus), AC-BC, HRS & Sand Sheet</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Emulsi & Curah:</strong> Tack Coat, Prime Coat & Drum Pen 60/70</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Jasa Pengaspalan:</strong> Gelar manual/finisher & sewa tandem</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-2 border-t border-border-base/50 flex items-center justify-between">
+                    <span class="text-[10px] font-mono text-gray-500">Pen 60/70 Resmi Pertamina</span>
+                    <a href="/niaga-aspal" class="text-[11px] font-bold text-green-primary group-hover/aspal:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
+                      <span>Detail Unit</span>
+                      <span>&rarr;</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 04. Niaga Batuan -->
+                <div class="p-4 rounded-[10px] border border-border-base/80 bg-surface hover:bg-[#E5F6E8]/25 hover:border-[#12A150]/60 transition-all flex flex-col justify-between group/batuan">
+                  <div>
+                    <div class="flex items-center justify-between mb-2">
+                      <a href="/niaga-batuan" class="text-xs font-black text-ink group-hover/batuan:text-green-primary transition-colors flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FFC700] ring-2 ring-[#FFC700]/30"></span>
+                        NIAGA BATUAN
+                      </a>
+                      <span class="text-[10px] font-mono font-bold text-[#0A4D2E] bg-[#E5F6E8] px-2 py-0.5 rounded border border-[#12A150]/20">
+                        Pasir Cuci & Split
+                      </span>
+                    </div>
+                    <p class="text-[11px] text-ink/75 leading-relaxed mb-3">
+                      Pasir cor cuci bebas lumpur dari kuari pilihan, batu split screening, batu belah pondasi, & bata dinding.
+                    </p>
+
+                    <!-- Sub-kategori / Item Populer -->
+                    <div class="space-y-1 mb-3 pt-2 border-t border-border-base/50">
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Pasir Cuci:</strong> Pasir Rangkas/Cilegon Cor (lumpur &lt; 5%)</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Split & Agregat:</strong> Split 1/2, Split 2/3, Makadam & Abu Batu</span>
+                      </div>
+                      <div class="flex items-start gap-1.5 text-[11px]">
+                        <span class="text-green-primary font-bold">&bull;</span>
+                        <span class="text-ink/90"><strong>Dinding:</strong> Bata Ringan Hebel (AAC) & Bata Merah Press</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-2 border-t border-border-base/50 flex items-center justify-between">
+                    <span class="text-[10px] font-mono text-gray-500">Ritase Colt Diesel & Tronton</span>
+                    <a href="/niaga-batuan" class="text-[11px] font-bold text-green-primary group-hover/batuan:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
+                      <span>Detail Unit</span>
+                      <span>&rarr;</span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Kolom Kanan: Hub Dukungan Proyek, Logistik & Quick Action (4 Kolom) -->
+              <div class="lg:col-span-4 bg-surface-soft p-5 border-t lg:border-t-0 lg:border-l border-border-base flex flex-col justify-between gap-4">
+                
+                <!-- Info Kesiapan Armada & Jangkauan -->
+                <div>
+                  <span class="text-[10px] font-mono font-bold text-[#0A4D2E] uppercase tracking-wider block mb-2">
+                    KAPASITAS ARMADA & LOGISTIK
+                  </span>
+                  <div class="space-y-2 text-xs">
+                    <div class="flex items-center gap-2 p-2 rounded bg-surface border border-border-base/70">
+                      <span class="text-base leading-none">🚛</span>
+                      <div>
+                        <span class="font-bold text-ink block text-[11px]">Armada Molen Cor</span>
+                        <span class="text-[10px] text-ink/70">Standar 7 m³ & Minimix 3 m³ (masuk gang)</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 p-2 rounded bg-surface border border-border-base/70">
+                      <span class="text-base leading-none">🚚</span>
+                      <div>
+                        <span class="font-bold text-ink block text-[11px]">Dump Truck Agregat</span>
+                        <span class="text-[10px] text-ink/70">Colt Diesel 7 m³ & Tronton Index 24 m³</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 p-2 rounded bg-surface border border-border-base/70">
+                      <span class="text-base leading-none">🏗️</span>
+                      <div>
+                        <span class="font-bold text-ink block text-[11px]">Trailer Angkut Baja & Precast</span>
+                        <span class="text-[10px] text-ink/70">Flatbed baja WF, H-Beam & Box Culvert</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Keunggulan Legalitas B2B & Faktur Pajak -->
+                <div class="p-3 rounded-lg bg-[#E5F6E8]/60 border border-[#12A150]/30">
+                  <span class="text-[10px] font-mono font-bold text-[#0A4D2E] uppercase tracking-wider block mb-1">
+                    JAMINAN TRANSAKSI RESMI
+                  </span>
+                  <ul class="text-[11px] text-ink/80 space-y-1">
+                    <li class="flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5 text-green-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      <span>Perusahaan PKP resmi (Faktur Pajak PPN)</span>
+                    </li>
+                    <li class="flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5 text-green-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      <span>Sertifikat Uji Lab Tekan & Mill Certificate</span>
+                    </li>
+                    <li class="flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5 text-green-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      <span>Timbangan digital kuari akurat & tera sah</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Call to Action Bantuan Estimator & Hitung BoQ -->
+                <div class="p-3.5 rounded-lg bg-[#FFC700]/15 border border-[#FFC700]/50 text-ink">
+                  <div class="flex items-center gap-2 mb-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#FFC700]"></span>
+                    <span class="text-xs font-bold text-ink">Butuh Estimasi Volume & BoQ?</span>
+                  </div>
+                  <p class="text-[11px] text-ink/75 leading-relaxed mb-2.5">
+                    Kirim BoQ/RAB proyek Anda untuk mendapatkan surat penawaran harga (SPH) resmi dari tim teknis.
+                  </p>
+                  <a 
+                    href={waUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full bg-[#FFC700] hover:bg-[#E5B300] text-ink font-bold text-xs py-2 px-3 rounded-[6px] inline-flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                  >
+                    <span>Konsultasi WhatsApp Estimator</span>
+                    <span>&rarr;</span>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Footer Strip Mega-Menu: Cakupan Area & Quick Technical Guides -->
+            <div class="px-6 py-2.5 bg-surface-soft border-t border-border-base flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+              <div class="flex items-center gap-2 text-[11px] text-ink/70">
+                <span class="font-mono font-bold text-[#0A4D2E]">JANGKAUAN PROYEK:</span>
+                <span>Jakarta &bull; Bogor &bull; Depok &bull; Tangerang &bull; Bekasi &bull; Cikarang &bull; Karawang</span>
+              </div>
+              <div class="flex items-center gap-3 text-[11px]">
+                <a href="/artikel" class="text-ink/80 hover:text-green-primary font-semibold underline underline-offset-2">
+                  Panduan Teknis Konstruksi &rarr;
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <a 
+        href="/tentang" 
+        class={`text-sm py-2 transition-colors ${pathname.startsWith('/tentang') ? 'font-bold text-ink border-b-2 border-[#FFC700]' : 'font-semibold text-ink/80 hover:text-green-primary'}`}
+      >
+        Profil & Legalitas
+      </a>
+      <a 
+        href="/artikel" 
+        class={`text-sm py-2 transition-colors ${pathname.startsWith('/artikel') ? 'font-bold text-ink border-b-2 border-[#FFC700]' : 'font-semibold text-ink/80 hover:text-green-primary'}`}
+      >
+        Artikel Teknis
+      </a>
+      <a 
+        href="/kontak" 
+        class={`text-sm py-2 transition-colors ${pathname.startsWith('/kontak') ? 'font-bold text-ink border-b-2 border-[#FFC700]' : 'font-semibold text-ink/80 hover:text-green-primary'}`}
+      >
+        Kontak
+      </a>
+    </nav>
+
+    <!-- Desktop WhatsApp CTA & Keranjang Button -->
+    <div class="hidden md:flex items-center gap-3">
+      <button 
+        type="button" 
+        id="header-cart-btn"
+        class="relative px-3.5 py-2.5 rounded-[6px] border border-border-base bg-surface hover:bg-surface-soft text-ink font-bold text-xs inline-flex items-center gap-2 transition-all active:scale-98 shadow-sm group"
+        title="Buka Keranjang Pesanan Material"
+      >
+        <svg class="w-4 h-4 text-green-primary group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span>Keranjang</span>
+        <span id="header-cart-count" class="bg-[#FFC700] text-ink text-[10px] font-mono font-black px-1.5 py-0.5 rounded-full min-w-[20px] text-center shadow-xs">
+          0
+        </span>
+      </button>
+
+      <a 
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-[#FFC700] hover:bg-[#E5B300] text-[#111111] font-bold text-sm px-5 py-2.5 rounded-[6px] inline-flex items-center gap-2 transition-all duration-150 active:scale-98 shadow-sm"
+      >
+        <svg class="w-4 h-4 text-[#111111]" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
+        </svg>
+        <span>Tanya via WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- Mobile Cart & Hamburger Button -->
+    <div class="flex items-center gap-2 md:hidden">
+      <button 
+        type="button" 
+        id="mobile-cart-btn" 
+        aria-label="Buka Keranjang Material"
+        class="relative p-2 rounded-[6px] border border-border-base text-ink bg-surface"
+      >
+        <svg class="w-6 h-6 text-green-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span id="mobile-cart-count" class="absolute -top-1 -right-1 bg-[#FFC700] text-ink text-[9px] font-mono font-black w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+          0
+        </span>
+      </button>
+
+      <button 
+        type="button" 
+        id="mobile-menu-btn" 
+        aria-label="Buka Menu Navigasi"
+        class="p-2 rounded-[6px] border border-border-base text-ink"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

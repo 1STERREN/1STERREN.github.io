@@ -1,0 +1,199 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import PhotoSlot from '@/components/ui/PhotoSlot.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+---
+
+<Layout title="Artikel & Panduan Teknis | CV. Serba Niaga Jaya">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10 text-center max-w-2xl mx-auto">
+      <div class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider mb-1">EDUKASI KONSTRUKSI</div>
+      <h1 class="text-3xl sm:text-4xl font-black text-ink mb-3">Artikel & Panduan Teknis</h1>
+      <p class="text-sm text-ink opacity-85">Kajian spesifikasi teknis SNI, komparasi efisiensi material, dan praktik standar di lapangan.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {articles.map(article => (
+        <a href={`/artikel/${article.slug}`} class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between group">
+          <div>
+            <PhotoSlot aspectRatio="16/9" label={article.data.title} class="mb-4" />
+            
+            <div class="flex items-center justify-between text-xs mb-2">
+              <span class="font-mono text-green-primary font-bold bg-[#E5F6E8] px-2 py-0.5 rounded capitalize">
+                {article.data.category}
+              </span>
+              <span class="text-gray-500 font-mono text-[11px]">{article.data.readingTimeMinutes} mnt baca</span>
+            </div>
+
+            {(article.data.actionBadge || article.data.promoBadge) && (
+              <span class="inline-block text-[10px] font-mono font-bold bg-[#E5F6E8] text-[#0F7B3F] px-2 py-0.5 rounded mb-2 border border-[#0F7B3F]/20">
+                {article.data.actionBadge || article.data.promoBadge}
+              </span>
+            )}
+
+            <h2 class="text-base font-bold text-ink mb-2 leading-snug group-hover:text-green-primary transition-colors">
+              {article.data.title}
+            </h2>
+            <p class="text-xs text-ink opacity-80 line-clamp-3 mb-4">
+              {article.data.summary}
+            </p>
+          </div>
+          
+          <div class="pt-3 border-t border-border-base flex justify-between items-center text-xs">
+            <span class="font-mono text-gray-500 text-[11px] truncate max-w-[170px]">{article.data.sniReference}</span>
+            <span class="text-green-primary font-bold group-hover:translate-x-1 transition-transform">Baca &rarr;</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- PROMOSI EMPAT KATEGORI PENGADAAN -->
+    <div class="mt-16 pt-12 border-t border-border-base">
+      <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-mono font-bold text-green-primary uppercase tracking-wider block mb-1">
+            PASOKAN MATERIAL TERPADU
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-ink">
+            Empat Kategori Pengadaan Proyek
+          </h2>
+          <p class="text-xs sm:text-sm text-ink opacity-80 mt-1">
+            Selain panduan teknis, CV. Serba Niaga Jaya menyediakan pasokan terpadu material konstruksi standar SNI & Bina Marga.
+          </p>
+        </div>
+        <a 
+          href="/produk" 
+          class="text-xs font-bold text-green-primary hover:underline inline-flex items-center gap-1 shrink-0 font-mono"
+        >
+          <span>Katalog Lengkap & Keranjang</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Grid 4 Kategori Pengadaan -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- 01. Niaga Beton -->
+        <a 
+          href="/niaga-beton" 
+          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold text-green-primary">01 &bull; BETON</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
+                SNI 2847
+              </span>
+            </div>
+            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+              Beton Ready Mix & Precast
+            </h3>
+            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
+              Cor mixer K-175 s/d K-500, U-Ditch, Box Culvert & sewa pompa.
+            </p>
+          </div>
+          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
+            <span>Lihat Produk</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 02. Niaga Baja -->
+        <a 
+          href="/niaga-baja" 
+          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold text-green-primary">02 &bull; BAJA</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
+                SNI 2052
+              </span>
+            </div>
+            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+              Baja Tulangan & Profil
+            </h3>
+            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
+              Besi ulir BjTS 420B, polos TP 280, wiremesh M6-M10 & baja WF.
+            </p>
+          </div>
+          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
+            <span>Lihat Produk</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 03. Niaga Aspal -->
+        <a 
+          href="/niaga-aspal" 
+          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold text-green-primary">03 &bull; ASPAL</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
+                Bina Marga
+              </span>
+            </div>
+            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+              Aspal Hotmix & Bitumen
+            </h3>
+            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
+              Hotmix AC-WC, AC-BC, Sand Sheet, Pen 60/70 & jasa pemadatan.
+            </p>
+          </div>
+          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
+            <span>Lihat Produk</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 04. Niaga Batuan -->
+        <a 
+          href="/niaga-batuan" 
+          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono font-bold text-green-primary">04 &bull; BATUAN</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
+                Lumpur &lt; 5%
+              </span>
+            </div>
+            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+              Agregat Pasir & Batu Split
+            </h3>
+            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
+              Pasir cuci Bangka/Rangkas, batu split 1/2, abu batu & agregat.
+            </p>
+          </div>
+          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
+            <span>Lihat Produk</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Banner Belanja Keranjang Produk -->
+      <div class="mt-6 p-4 rounded-[8px] bg-[#FFC700]/15 border border-[#FFC700] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-[#FFC700] text-ink font-black flex items-center justify-center shrink-0 text-base">
+            🛒
+          </span>
+          <div>
+            <h4 class="text-xs sm:text-sm font-black text-ink">Beli Langsung Lewat Keranjang Digital</h4>
+            <p class="text-xs text-ink opacity-85">Pilih material dari 4 kategori pengadaan, tentukan volume, dan kirim rincian pesanan langsung ke WhatsApp kami.</p>
+          </div>
+        </div>
+        <a 
+          href="/produk" 
+          class="shrink-0 bg-[#FFC700] hover:bg-[#E5B300] text-ink font-bold text-xs py-2.5 px-4 rounded-[6px] shadow-xs transition-all inline-flex items-center gap-1.5"
+        >
+          <span>Buka Master Marketplace</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
