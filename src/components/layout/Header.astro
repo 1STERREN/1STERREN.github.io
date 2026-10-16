@@ -356,23 +356,8 @@ const pathname = Astro.url.pathname;
       </a>
     </nav>
 
-    <!-- Desktop WhatsApp CTA & Keranjang Button -->
+    <!-- Desktop WhatsApp CTA Button -->
     <div class="hidden md:flex items-center gap-3">
-      <button 
-        type="button" 
-        id="header-cart-btn"
-        class="relative px-3.5 py-2.5 rounded-[6px] border border-border-base bg-surface hover:bg-surface-soft text-ink font-bold text-xs inline-flex items-center gap-2 transition-all active:scale-98 shadow-sm group"
-        title="Buka Keranjang Pesanan Material"
-      >
-        <svg class="w-4 h-4 text-green-primary group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
-        <span>Keranjang</span>
-        <span id="header-cart-count" class="bg-[#FFC700] text-ink text-[10px] font-mono font-black px-1.5 py-0.5 rounded-full min-w-[20px] text-center shadow-xs">
-          0
-        </span>
-      </button>
-
       <a 
         href={waUrl}
         target="_blank"
@@ -386,21 +371,19 @@ const pathname = Astro.url.pathname;
       </a>
     </div>
 
-    <!-- Mobile Cart & Hamburger Button -->
+    <!-- Mobile WhatsApp & Hamburger Button -->
     <div class="flex items-center gap-2 md:hidden">
-      <button 
-        type="button" 
-        id="mobile-cart-btn" 
-        aria-label="Buka Keranjang Material"
-        class="relative p-2 rounded-[6px] border border-border-base text-ink bg-surface"
+      <a 
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Tanya via WhatsApp"
+        class="p-2 rounded-[6px] bg-[#FFC700] text-ink inline-flex items-center justify-center shadow-xs"
       >
-        <svg class="w-6 h-6 text-green-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        <svg class="w-5 h-5 text-ink" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
         </svg>
-        <span id="mobile-cart-count" class="absolute -top-1 -right-1 bg-[#FFC700] text-ink text-[9px] font-mono font-black w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
-          0
-        </span>
-      </button>
+      </a>
 
       <button 
         type="button" 
