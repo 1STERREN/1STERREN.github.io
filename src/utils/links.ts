@@ -1,6 +1,8 @@
-export const OFFICIAL_PHONE = "6281288889999";
-export const OFFICIAL_PHONE_DISPLAY = "+62 812-8888-9999";
-export const OFFICIAL_EMAIL = "penawaran@serbaniagajaya.co.id";
+export const OFFICIAL_PHONE = "628212226175";
+export const OFFICIAL_PHONE_DISPLAY = "0821-2226-175";
+export const OFFICIAL_EMAIL = "cvserbaniagajaya@gmail.com";
+export const OFFICIAL_ADDRESS = "Jl. Raya Lenteng Agung Blok Anyar No.48, RT.7/RW.2, Lenteng Agung, Kec. Jagakarsa, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12630";
+
 
 export function createWhatsAppUrl(productOrSpec: string = "Material Konstruksi"): string {
   const text = `Halo CV. Serba Niaga Jaya, saya ingin menanyakan ketersediaan dan penawaran harga untuk produk: ${productOrSpec}.`;

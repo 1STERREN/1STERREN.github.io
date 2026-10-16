@@ -1,16 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Button from '@/components/ui/Button.astro';
-import { createWhatsAppUrl, createBoQMailtoUrl, OFFICIAL_PHONE_DISPLAY, OFFICIAL_EMAIL } from '@/utils/links';
+import { createWhatsAppUrl, createBoQMailtoUrl, OFFICIAL_PHONE_DISPLAY, OFFICIAL_EMAIL, OFFICIAL_ADDRESS } from '@/utils/links';
 
 const waUrl = createWhatsAppUrl("Halo CV. Serba Niaga Jaya, saya ingin konsultasi pengadaan material untuk proyek.");
 const mailtoUrl = createBoQMailtoUrl("Permintaan Penawaran Resmi");
 
-// Placeholder alamat & jam operasional (bertanda TODO)
-// TODO: Alamat lengkap kantor menunggu konfirmasi pemilik
-const ALAMAT_KANTOR = "Kawasan Sentra Niaga, Jl. Raya Industri No. 88, Bekasi, Jawa Barat [Placeholder Alamat Kantor]";
-// TODO: Jam operasional pasti menunggu konfirmasi pemilik
-const JAM_OPERASIONAL = "Senin - Sabtu: 08.00 - 17.00 WIB [Placeholder Jam Operasional]";
+const ALAMAT_KANTOR = OFFICIAL_ADDRESS;
+const JAM_OPERASIONAL = "Senin - Sabtu: 08.00 - 17.00 WIB";
 ---
 
 <Layout title="Kontak & Layanan Pengadaan | CV. Serba Niaga Jaya">

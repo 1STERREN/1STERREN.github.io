@@ -1,4 +1,5 @@
 ---
+import { OFFICIAL_PHONE, OFFICIAL_PHONE_DISPLAY, OFFICIAL_EMAIL, OFFICIAL_ADDRESS } from '@/utils/links';
 ---
 <footer class="bg-surface-soft border-t-2 border-green-primary py-12 text-ink">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,20 +29,24 @@
         <div class="space-y-2 text-xs text-ink opacity-80">
           <div>
             <span class="block text-gray-500">WhatsApp Teknis:</span>
-            <a href="https://wa.me/6281288889999" class="font-mono font-bold text-ink hover:underline">+62 812-8888-9999</a>
+            <a href={`https://wa.me/${OFFICIAL_PHONE}`} class="font-mono font-bold text-ink hover:underline">{OFFICIAL_PHONE_DISPLAY}</a>
           </div>
           <div>
             <span class="block text-gray-500">Email BoQ / Penawaran:</span>
-            <a href="mailto:penawaran@serbaniagajaya.co.id" class="font-mono text-ink hover:underline">penawaran@serbaniagajaya.co.id</a>
+            <a href={`mailto:${OFFICIAL_EMAIL}`} class="font-mono text-ink hover:underline break-all">{OFFICIAL_EMAIL}</a>
           </div>
         </div>
       </div>
 
-      <!-- Kolom 4: Wilayah Layanan -->
+      <!-- Kolom 4: Alamat & Wilayah Layanan -->
       <div class="space-y-3">
-        <h4 class="text-xs font-mono font-bold uppercase text-ink tracking-wider">Wilayah Distribusi</h4>
+        <h4 class="text-xs font-mono font-bold uppercase text-ink tracking-wider">Kantor Operasional</h4>
         <p class="text-xs text-ink opacity-80 leading-relaxed">
-          DKI Jakarta, Kota & Kab. Bogor, Kota Depok, Tangerang Raya, Kota & Kab. Bekasi, Cikarang, dan Karawang.
+          {OFFICIAL_ADDRESS}
+        </p>
+        <span class="block text-[11px] font-mono font-bold text-green-primary uppercase">Jangkauan Armada:</span>
+        <p class="text-[11px] text-ink opacity-70 leading-relaxed">
+          DKI Jakarta, Bogor, Depok, Tangerang, Bekasi, Cikarang & Karawang.
         </p>
       </div>
     </div>
