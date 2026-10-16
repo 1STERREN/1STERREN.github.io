@@ -7,27 +7,48 @@
   "datasheetUrl": null,
   "sections": [
     {
-      "title": "Produk & Layanan Pengaspalan",
+      "title": "Campuran Aspal Hotmix (Asphalt Concrete)",
+      "items": [
+        {
+          "name": "Aspal Hotmix AC-WC (Wearing Course)",
+          "description": "Lapis aus permukaan jalan lalu lintas padat dengan tekstur rapat dan tahan deformasi standar Bina Marga."
+        },
+        {
+          "name": "Aspal Hotmix AC-BC (Binder Course)",
+          "description": "Lapis antara pengikat struktural perkerasan jalan di bawah lapisan AC-WC yang mendistribusikan beban roda kendaraan."
+        },
+        {
+          "name": "Aspal Hotmix AC-Base (Fondasi Jalan)",
+          "description": "Lapis fondasi atas aspal beton bergradasi kasar dan kuat untuk jalan dengan beban gandar berat dan kawasan industri."
+        },
+        {
+          "name": "Aspal Hotmix HRS (Hot Rolled Sheet)",
+          "description": "Lapis tipis aspal beton bergradasi senjang dengan fleksibilitas tinggi, ideal untuk jalan pemukiman dan perkotaan."
+        },
+        {
+          "name": "Aspal Lataston (Lapis Tipis Aspal Beton)",
+          "description": "Lapis perata dan penutup aus tipis ekonomis untuk pemeliharaan jalan lingkungan dan area parkir."
+        }
+      ]
+    },
+    {
+      "title": "Aspal Minyak, Emulsi & Jasa Pengaspalan",
       "items": [
         {
           "name": "Aspal Penetrasi (Pen 60/70)",
-          "description": "bahan utama campuran hotmix, umum dipakai untuk iklim tropis Indonesia."
+          "description": "Bahan pengikat utama campuran hotmix murni Pertamina untuk iklim tropis Indonesia."
         },
         {
-          "name": "Aspal Hotmix (Asphalt Concrete)",
-          "description": "varian AC-WC (Wearing Course), AC-BC (Binder Course), Fine Sheet, Sand Sheet, dan HRS (Hot Rolled Sheet)."
-        },
-        {
-          "name": "Aspal Emulsi",
-          "description": "Tack Coat (perekat) dan Prime Coat (resap pengikat) untuk pelapisan dasar fondasi jalan."
-        },
-        {
-          "name": "Aspal Cair / Cutback",
-          "description": "perekat anti-debu dan pelapis awal permukaan jalan."
+          "name": "Aspal Emulsi (Tack Coat & Prime Coat)",
+          "description": "Aspal cair perekat antar lapis perkerasan (Tack Coat) dan resap pengikat fondasi agregat (Prime Coat)."
         },
         {
           "name": "Aspal Curah / Drum",
-          "description": "kemasan drum atau curah untuk tambal jalan, waterproofing atap/jembatan, dan joint sealant beton."
+          "description": "Kemasan drum dan curah untuk tambal jalan, waterproofing atap/jembatan, dan joint sealant beton."
+        },
+        {
+          "name": "Jasa Gelar Pengaspalan & Asphalt Sprayer",
+          "description": "Layanan hampar dan pemadatan jalan hotmix mekanis dengan finisher, tandem roller, dan distributor sprayer tangki."
         }
       ]
     }

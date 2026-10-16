@@ -7,38 +7,49 @@
   "datasheetUrl": null,
   "sections": [
     {
-      "title": "Batu Kali & Batu Belah",
+      "title": "Bata & Material Pasangan Dinding",
       "items": [
         {
-          "name": "Batu Kali & Batu Belah",
-          "description": "pondasi bangunan, retaining wall (dinding penahan tanah), dan bronjong."
+          "name": "Bata Ringan Hebel (AAC Presisi)",
+          "description": "Bata aerasi ringan presisi tebal 7.5 cm dan 10 cm, hemat spesi semen instan dan mempercepat pemasangan dinding gedung."
+        },
+        {
+          "name": "Batu Bata Merah Press & Jumbo Oven",
+          "description": "Bata merah bakar oven padat kokoh dari tanah liat super, tahan rambatan panas untuk dinding pemikul dan dekoratif."
+        },
+        {
+          "name": "Paket Dinding: Bata Merah & Hebel",
+          "description": "Layanan pasokan gabungan bata ringan hebel dan bata merah press dalam satu ritase armada untuk efisiensi logistik proyek."
         }
       ]
     },
     {
-      "title": "Pasir Konstruksi",
+      "title": "Batu Split & Agregat Kasar",
       "items": [
         {
-          "name": "Pasir Konstruksi",
-          "description": "Pasir Rangkas, Pasir Cilegon, Pasir Lampung, Pasir Cor, Pasir Pasang, Pasir Urug."
+          "name": "Batu Split 1/2 & 2/3 (Batu Pecah Cor)",
+          "description": "Agregat kasar screening mesin crusher ukuran 10-20 mm dan 20-30 mm bebas lumpur untuk campuran beton bertulang SNI."
+        },
+        {
+          "name": "Batu Makadam & Sirdam (Base Course)",
+          "description": "Batu makadam 5/7 dan sirdam untuk pengurugan lantai kerja, stabilisasi tanah lunak, dan fondasi dasar jalan."
         }
       ]
     },
     {
-      "title": "Bata & Material Dinding",
+      "title": "Batu Pondasi & Pasir Konstruksi",
       "items": [
         {
-          "name": "Bata & Material Dinding",
-          "description": "Bata Ringan/Hebel (AAC), Batu Bata Merah Press/Jumbo, Batako Press."
-        }
-      ]
-    },
-    {
-      "title": "Batu Split & Agregat",
-      "items": [
+          "name": "Batu Kali & Batu Belah Pondasi",
+          "description": "Batu belah alam kuari keras untuk fondasi tapak menerus bangunan, bronjong kali, dan dinding penahan tanah."
+        },
         {
-          "name": "Batu Split & Agregat",
-          "description": "Batu Split 1/2, 2/3, 3/5, Batu Makadam, Batu Sirdam, dan Abu Batu untuk campuran cor dan pengurugan."
+          "name": "Pasir Cor Cuci (Rangkas & Cilegon)",
+          "description": "Pasir cor cuci berkualitas tinggi dengan kadar lumpur rendah (<5%), tajam dan bersih untuk beton readymix dan dak."
+        },
+        {
+          "name": "Pasir Pasang & Pasir Urug Konstruksi",
+          "description": "Pasir pasang halus untuk plesteran dan acian dinding rapi, serta pasir urug untuk penimbunan fondasi dan proteksi pipa utilitas."
         }
       ]
     }

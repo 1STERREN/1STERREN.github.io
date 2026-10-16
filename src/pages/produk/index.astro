@@ -6,69 +6,7 @@ import { getMaterialPhoto } from '@/utils/materialPhotos';
 
 const products = await getCollection('products');
 
-// Helper satuan otomatis
-function getMaterialUnit(cat: string, name: string): string {
-  const n = name.toLowerCase();
-  if (cat === 'beton') {
-    if (n.includes('pompa')) return 'Sesi';
-    if (n.includes('u-ditch') || n.includes('cover') || n.includes('box culvert') || n.includes('buis') || n.includes('kanstin')) return 'Pcs';
-    if (n.includes('paving')) return 'm²';
-    return 'm³';
-  }
-  if (cat === 'baja') {
-    if (n.includes('wiremesh')) return 'Lembar';
-    if (n.includes('alderon') || n.includes('spandek') || n.includes('polycarbonate')) return 'Lembar';
-    if (n.includes('plat')) return 'Lembar';
-    return 'Batang';
-  }
-  if (cat === 'aspal') {
-    if (n.includes('drum') || n.includes('curah')) return 'Drum';
-    if (n.includes('emulsi') || n.includes('cair')) return 'Drum';
-    if (n.includes('jasa')) return 'm²';
-    return 'Ton';
-  }
-  if (cat === 'batuan') {
-    if (n.includes('bata') || n.includes('hebel')) return 'm³';
-    if (n.includes('pasir')) return 'Rit';
-    if (n.includes('split') || n.includes('agregat') || n.includes('makadam') || n.includes('sirdam')) return 'Rit';
-    if (n.includes('batu kali') || n.includes('batu belah')) return 'Rit';
-    return 'Rit';
-  }
-  return 'Unit';
-}
-
-// Helper badge standar resmi
-function getMaterialStandardBadge(cat: string, name: string): string {
-  const n = name.toLowerCase();
-  if (cat === 'beton') {
-    if (n.includes('kelas iii') || n.includes('k-350') || n.includes('k-500')) return 'SNI 2847 Heavy';
-    if (n.includes('precast') || n.includes('u-ditch') || n.includes('box')) return 'Precast SNI K-350';
-    if (n.includes('pompa')) return 'Armada Pompa SNJ';
-    return 'SNI 2847 / PBI';
-  }
-  if (cat === 'baja') {
-    if (n.includes('ulir') || n.includes('ts 420')) return 'SNI 2052 BjTS 420';
-    if (n.includes('polos')) return 'SNI 2052 BjTP 280';
-    if (n.includes('wf') || n.includes('h-beam')) return 'ASTM / JIS Grade';
-    if (n.includes('alderon')) return 'uPVC Twinwall';
-    return 'Mill Sheet SNI';
-  }
-  if (cat === 'aspal') {
-    if (n.includes('ac-wc') || n.includes('ac-bc')) return 'Bina Marga Rev 3';
-    if (n.includes('pen 60/70')) return 'Pertamina Resmi';
-    if (n.includes('emulsi') || n.includes('tack') || n.includes('prime')) return 'SNI 03-4798';
-    return 'Standar Jalan Raya';
-  }
-  if (cat === 'batuan') {
-    if (n.includes('pasir')) return 'Lumpur < 5%';
-    if (n.includes('split')) return 'Gradasi Kuat Tekan';
-    if (n.includes('hebel')) return 'Presisi AAC SNI';
-    return 'Kuari Terverifikasi';
-  }
-  return 'Standar SNI';
-}
-
-// Gabungkan seluruh item dari 4 unit bisnis ke dalam satu daftar master
+// Gabungkan seluruh item dari 4 unit niaga ke dalam satu daftar master
 const allMasterItems = products.flatMap((p) => {
   return p.data.sections.flatMap((sec, sIdx) => {
     return sec.items.map((item, itemIdx) => {
@@ -80,8 +18,6 @@ const allMasterItems = products.flatMap((p) => {
         category: cat,
         unitBusinessName: p.data.unitBusinessName,
         sectionTitle: sec.title,
-        unit: getMaterialUnit(cat, item.name),
-        badge: getMaterialStandardBadge(cat, item.name),
         photoSrc: getMaterialPhoto(cat, item.name)
       };
     });
@@ -194,22 +130,18 @@ const allMasterItems = products.flatMap((p) => {
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               
-              <!-- Badges Kontras Tinggi -->
-              <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5">
+              <!-- Label Kategori Bersih -->
+              <div class="absolute top-2.5 left-2.5">
                 <span class="bg-surface/95 text-[9px] font-mono font-bold text-[#0A4D2E] px-2 py-0.5 rounded shadow-xs border border-border-base">
                   {item.unitBusinessName}
-                </span>
-                <span class="bg-[#FFC700] text-ink text-[9px] font-mono font-black px-1.5 py-0.5 rounded shadow-xs">
-                  {item.badge}
                 </span>
               </div>
             </div>
 
             <!-- Card Body -->
             <div class="p-4">
-              <div class="flex items-center justify-between text-[10px] font-mono text-gray-500 mb-1.5">
-                <span class="truncate max-w-[130px]">{item.sectionTitle}</span>
-                <span class="text-[#0A4D2E] font-bold bg-[#E5F6E8] px-2 py-0.5 rounded border border-[#12A150]/20">Satuan: {item.unit}</span>
+              <div class="text-[10px] font-mono text-gray-500 mb-1.5">
+                <span class="truncate block">{item.sectionTitle}</span>
               </div>
               <h3 class="text-sm font-black text-ink mb-1.5 group-hover:text-green-primary transition-colors line-clamp-2 min-h-[2.5rem]">
                 {item.name}
@@ -226,13 +158,13 @@ const allMasterItems = products.flatMap((p) => {
           <div class="p-4 pt-0">
             <div class="pt-2.5 border-t border-border-base/70">
               <a 
-                href={createWhatsAppUrl(`Halo CV. Serba Niaga Jaya, saya ingin menanyakan spesifikasi & penawaran resmi untuk: ${item.name} (${item.unitBusinessName}, Satuan: ${item.unit})`)}
+                href={createWhatsAppUrl(`Halo CV. Serba Niaga Jaya, saya ingin menanyakan spesifikasi & penawaran resmi untuk: ${item.name} (${item.unitBusinessName})`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full bg-[#FFC700] hover:bg-[#E5B300] active:scale-98 text-ink font-bold text-xs py-2.5 px-3 rounded-[6px] shadow-sm flex items-center justify-center gap-2 transition-all group-hover:bg-[#FFC700]"
+                class="w-full bg-[#EAF7ED] hover:bg-[#D5EEDB] active:scale-98 text-[#0D6838] border border-[#12A150]/30 hover:border-[#12A150]/60 font-bold text-xs py-2.5 px-3 rounded-[6px] shadow-xs flex items-center justify-center gap-2 transition-all"
                 title={`Tanya Penawaran ${item.name} via WhatsApp`}
               >
-                <svg class="w-4 h-4 text-ink shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 text-[#0D6838] shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.97.53 1.77.82 2.79.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.708 0-3.32-.435-4.733-1.199l-5.267 1.381 1.405-5.137c-.896-1.493-1.405-3.237-1.405-5.045 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>
                 </svg>
                 <span>Tanya via WhatsApp</span>

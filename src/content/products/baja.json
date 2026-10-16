@@ -20,6 +20,10 @@
         {
           "name": "Wiremesh lembaran & rol (M4, M5, M6, M7, M8, M10, M12)",
           "description": "Jaring kawat baja las untuk pembesian pelat lantai, dak beton, dan jalan beton."
+        },
+        {
+          "name": "Pagar BRC Galvanis (Ready Pasang)",
+          "description": "Pagar kawat baja las galvanis siap pasang untuk kawasan industri, pergudangan, perumahan, dan batas proyek."
         }
       ]
     },
@@ -58,6 +62,10 @@
         {
           "name": "Plat Hitam (SS400), Plat Kapal, & Plat Bordes",
           "description": "Lembaran plat baja struktural, plat lantai bordes anti-slip, dan fabrikasi mesin."
+        },
+        {
+          "name": "Plat Aluminium (Sheet & Bordes)",
+          "description": "Lembaran plat aluminium anti-korosi ringan tahan cuaca untuk pelapis karoseri, cladding fasad, dan ducting."
         }
       ]
     },
@@ -78,7 +86,7 @@
         },
         {
           "name": "Genteng Metal & Baja Ringan",
-          "description": "(TODO: detail varian baja ringan menunggu konfirmasi pemilik, jangan ditebak.)"
+          "description": "Atap genteng metal berpasir warna dan kaso/reng baja ringan galvalum tahan cuaca dan anti rayap."
         }
       ]
     }
