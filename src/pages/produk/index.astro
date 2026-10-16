@@ -2,15 +2,9 @@
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { createWhatsAppUrl } from '@/utils/links';
+import { getMaterialPhoto } from '@/utils/materialPhotos';
 
 const products = await getCollection('products');
-
-const photoMap: Record<string, string> = {
-  beton: '/images/foto-beton-readymix.jpg',
-  baja: '/images/foto-baja-rebar.jpg',
-  aspal: '/images/foto-aspal-hotmix.jpg',
-  batuan: '/images/foto-batuan-agregat.jpg',
-};
 
 // Helper satuan otomatis
 function getMaterialUnit(cat: string, name: string): string {
@@ -88,7 +82,7 @@ const allMasterItems = products.flatMap((p) => {
         sectionTitle: sec.title,
         unit: getMaterialUnit(cat, item.name),
         badge: getMaterialStandardBadge(cat, item.name),
-        photoSrc: photoMap[cat] || '/images/foto-beton-readymix.jpg'
+        photoSrc: getMaterialPhoto(cat, item.name)
       };
     });
   });
@@ -191,43 +185,32 @@ const allMasterItems = products.flatMap((p) => {
           data-unitbusiness={item.unitBusinessName.toLowerCase()}
         >
           <div>
-            <!-- Visual Thumbnail Header -->
-            <div class="relative h-40 bg-surface-soft overflow-hidden border-b border-border-base">
+            <!-- Visual Thumbnail Header Bersih & Terang -->
+            <div class="relative h-44 bg-surface-soft overflow-hidden border-b border-border-base">
               <img 
                 src={item.photoSrc} 
                 alt={item.name} 
                 loading="lazy" 
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               
-              <!-- Badges -->
+              <!-- Badges Kontras Tinggi -->
               <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5">
-                <span class="bg-surface/95 backdrop-blur-xs text-[9px] font-mono font-bold text-[#0A4D2E] px-2 py-0.5 rounded shadow-xs">
+                <span class="bg-surface/95 text-[9px] font-mono font-bold text-[#0A4D2E] px-2 py-0.5 rounded shadow-xs border border-border-base">
                   {item.unitBusinessName}
                 </span>
                 <span class="bg-[#FFC700] text-ink text-[9px] font-mono font-black px-1.5 py-0.5 rounded shadow-xs">
                   {item.badge}
                 </span>
               </div>
-
-              <!-- Bottom Bar on Photo -->
-              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px]">
-                <span class="font-mono bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded text-[#FFF7CC]">
-                  Satuan: {item.unit}
-                </span>
-                <span class="flex items-center gap-1 font-mono text-[9px] text-white/90">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#12A150] animate-pulse"></span>
-                  Ready Stock
-                </span>
-              </div>
             </div>
 
             <!-- Card Body -->
             <div class="p-4">
-              <span class="text-[10px] font-mono text-gray-500 block mb-1 truncate">
-                {item.sectionTitle}
-              </span>
+              <div class="flex items-center justify-between text-[10px] font-mono text-gray-500 mb-1.5">
+                <span class="truncate max-w-[130px]">{item.sectionTitle}</span>
+                <span class="text-[#0A4D2E] font-bold bg-[#E5F6E8] px-2 py-0.5 rounded border border-[#12A150]/20">Satuan: {item.unit}</span>
+              </div>
               <h3 class="text-sm font-black text-ink mb-1.5 group-hover:text-green-primary transition-colors line-clamp-2 min-h-[2.5rem]">
                 {item.name}
               </h3>

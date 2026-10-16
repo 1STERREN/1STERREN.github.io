@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import Button from '@/components/ui/Button.astro';
 import PhotoSlot from '@/components/ui/PhotoSlot.astro';
 import { createWhatsAppUrl, createBoQMailtoUrl } from '@/utils/links';
+import { getMaterialPhoto } from '@/utils/materialPhotos';
 
 interface SectionItem {
   name: string;
@@ -204,45 +205,43 @@ function getMaterialStandardBadge(cat: string, name: string): string {
               const unit = getMaterialUnit(category, item.name);
               const badge = getMaterialStandardBadge(category, item.name);
               const itemId = `${category}-${sIdx}-${itemIdx}-${item.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+              const specificPhoto = getMaterialPhoto(category, item.name);
 
               return (
                 <div class="marketplace-card border border-border-base rounded-[10px] bg-surface overflow-hidden flex flex-col justify-between hover:border-[#12A150]/60 hover:shadow-lg transition-all duration-200 group">
                   
                   <div>
-                    <!-- Visual Thumbnail Header -->
+                    <!-- Visual Thumbnail Header Bersih & Terang -->
                     <div class="relative h-44 bg-surface-soft overflow-hidden border-b border-border-base">
                       <img 
-                        src={photoSrc} 
+                        src={specificPhoto} 
                         alt={item.name} 
                         loading="lazy" 
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                       
-                      <!-- Top Badges -->
+                      <!-- Top Badges Kontras Tinggi -->
                       <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-2">
-                        <span class="bg-surface/95 backdrop-blur-xs text-[10px] font-mono font-bold text-[#0A4D2E] px-2 py-0.5 rounded shadow-xs">
+                        <span class="bg-surface/95 text-[10px] font-mono font-bold text-[#0A4D2E] px-2 py-0.5 rounded shadow-xs border border-border-base">
                           {unitBusinessName}
                         </span>
                         <span class="bg-[#FFC700] text-ink text-[9px] font-mono font-black px-2 py-0.5 rounded shadow-xs">
                           {badge}
                         </span>
                       </div>
-
-                      <!-- Bottom Status on Photo -->
-                      <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[11px]">
-                        <span class="flex items-center gap-1.5 font-mono text-[10px] text-white/90">
-                          <span class="w-1.5 h-1.5 rounded-full bg-[#12A150] animate-pulse"></span>
-                          Siap Pasok Proyek
-                        </span>
-                        <span class="font-mono text-[10px] bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded border border-white/20 text-[#FFF7CC]">
-                          Satuan: {unit}
-                        </span>
-                      </div>
                     </div>
 
                     <!-- Card Body -->
                     <div class="p-5">
+                      <div class="flex items-center justify-between text-[11px] font-mono text-gray-500 mb-2">
+                        <span class="text-green-primary font-bold bg-[#E5F6E8] px-2 py-0.5 rounded border border-[#12A150]/20">
+                          Satuan: {unit}
+                        </span>
+                        <span class="flex items-center gap-1 font-mono text-[10px] text-[#0A4D2E]">
+                          <span class="w-1.5 h-1.5 rounded-full bg-[#12A150] animate-pulse"></span>
+                          Siap Pasok Proyek
+                        </span>
+                      </div>
                       <h4 class="text-sm sm:text-base font-black text-ink mb-1.5 group-hover:text-green-primary transition-colors line-clamp-2 min-h-[2.75rem]">
                         {item.name}
                       </h4>

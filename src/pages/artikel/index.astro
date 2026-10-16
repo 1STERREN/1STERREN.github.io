@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import PhotoSlot from '@/components/ui/PhotoSlot.astro';
 import { getCollection } from 'astro:content';
+import { articlePhotoMap } from '@/utils/materialPhotos';
 
 const articles = await getCollection('articles');
 ---
@@ -18,7 +19,13 @@ const articles = await getCollection('articles');
       {articles.map(article => (
         <a href={`/artikel/${article.slug}`} class="border border-border-base rounded-[8px] bg-surface p-5 industrial-card flex flex-col justify-between group">
           <div>
-            <PhotoSlot aspectRatio="16/9" label={article.data.title} class="mb-4" />
+            <PhotoSlot 
+              aspectRatio="16/9" 
+              label={article.data.title} 
+              src={articlePhotoMap[article.slug] || '/images/foto-cor-slab.jpg'}
+              alt={`Dokumentasi Lapangan ${article.data.title}`}
+              class="mb-4" 
+            />
             
             <div class="flex items-center justify-between text-xs mb-2">
               <span class="font-mono text-green-primary font-bold bg-[#E5F6E8] px-2 py-0.5 rounded capitalize">
@@ -77,100 +84,156 @@ const articles = await getCollection('articles');
         <!-- 01. Niaga Beton -->
         <a 
           href="/niaga-beton" 
-          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+          class="group border border-border-base rounded-[10px] bg-surface overflow-hidden hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
         >
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-green-primary">01 &bull; BETON</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
-                SNI 2847
-              </span>
+            <div class="h-32 bg-surface-soft overflow-hidden relative">
+              <img 
+                src="/images/foto-cor-mixer-chute.jpg" 
+                alt="Niaga Beton Ready Mix"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute top-2 left-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-surface/90 text-[#0A4D2E] font-bold shadow-xs">
+                  SNI 2847
+                </span>
+              </div>
             </div>
-            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
-              Beton Ready Mix & Precast
-            </h3>
-            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
-              Cor mixer K-175 s/d K-500, U-Ditch, Box Culvert & sewa pompa.
-            </p>
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-mono font-bold text-green-primary">01 &bull; BETON</span>
+              </div>
+              <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+                Beton Ready Mix & Precast
+              </h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed">
+                Cor mixer K-175 s/d K-500, U-Ditch, Box Culvert & sewa pompa.
+              </p>
+            </div>
           </div>
-          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
-            <span>Lihat Produk</span>
-            <span>&rarr;</span>
+          <div class="p-4 pt-0">
+            <div class="pt-2 border-t border-border-base/70 text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              <span>Lihat Produk</span>
+              <span>&rarr;</span>
+            </div>
           </div>
         </a>
 
         <!-- 02. Niaga Baja -->
         <a 
           href="/niaga-baja" 
-          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+          class="group border border-border-base rounded-[10px] bg-surface overflow-hidden hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
         >
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-green-primary">02 &bull; BAJA</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
-                SNI 2052
-              </span>
+            <div class="h-32 bg-surface-soft overflow-hidden relative">
+              <img 
+                src="/images/foto-baja-wf.jpg" 
+                alt="Niaga Baja Tulangan & Profil"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute top-2 left-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-surface/90 text-[#0A4D2E] font-bold shadow-xs">
+                  SNI 2052
+                </span>
+              </div>
             </div>
-            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
-              Baja Tulangan & Profil
-            </h3>
-            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
-              Besi ulir BjTS 420B, polos TP 280, wiremesh M6-M10 & baja WF.
-            </p>
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-mono font-bold text-green-primary">02 &bull; BAJA</span>
+              </div>
+              <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+                Baja Tulangan & Profil
+              </h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed">
+                Besi ulir BjTS 420B, polos TP 280, wiremesh M6-M10 & baja WF.
+              </p>
+            </div>
           </div>
-          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
-            <span>Lihat Produk</span>
-            <span>&rarr;</span>
+          <div class="p-4 pt-0">
+            <div class="pt-2 border-t border-border-base/70 text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              <span>Lihat Produk</span>
+              <span>&rarr;</span>
+            </div>
           </div>
         </a>
 
         <!-- 03. Niaga Aspal -->
         <a 
           href="/niaga-aspal" 
-          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+          class="group border border-border-base rounded-[10px] bg-surface overflow-hidden hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
         >
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-green-primary">03 &bull; ASPAL</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
-                Bina Marga
-              </span>
+            <div class="h-32 bg-surface-soft overflow-hidden relative">
+              <img 
+                src="/images/foto-aspal-hotmix.jpg" 
+                alt="Niaga Aspal Hotmix"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute top-2 left-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-surface/90 text-[#0A4D2E] font-bold shadow-xs">
+                  Bina Marga
+                </span>
+              </div>
             </div>
-            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
-              Aspal Hotmix & Bitumen
-            </h3>
-            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
-              Hotmix AC-WC, AC-BC, Sand Sheet, Pen 60/70 & jasa pemadatan.
-            </p>
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-mono font-bold text-green-primary">03 &bull; ASPAL</span>
+              </div>
+              <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+                Aspal Hotmix & Bitumen
+              </h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed">
+                Hotmix AC-WC, AC-BC, Sand Sheet, Pen 60/70 & jasa pemadatan.
+              </p>
+            </div>
           </div>
-          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
-            <span>Lihat Produk</span>
-            <span>&rarr;</span>
+          <div class="p-4 pt-0">
+            <div class="pt-2 border-t border-border-base/70 text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              <span>Lihat Produk</span>
+              <span>&rarr;</span>
+            </div>
           </div>
         </a>
 
         <!-- 04. Niaga Batuan -->
         <a 
           href="/niaga-batuan" 
-          class="group border border-border-base rounded-[10px] bg-surface p-5 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
+          class="group border border-border-base rounded-[10px] bg-surface overflow-hidden hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
         >
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold text-green-primary">04 &bull; BATUAN</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold">
-                Lumpur &lt; 5%
-              </span>
+            <div class="h-32 bg-surface-soft overflow-hidden relative">
+              <img 
+                src="/images/foto-pasir-dump-truck.jpg" 
+                alt="Niaga Batuan Agregat"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute top-2 left-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-surface/90 text-[#0A4D2E] font-bold shadow-xs">
+                  Lumpur &lt; 5%
+                </span>
+              </div>
             </div>
-            <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
-              Agregat Pasir & Batu Split
-            </h3>
-            <p class="text-xs text-ink opacity-80 leading-relaxed mb-3">
-              Pasir cuci Bangka/Rangkas, batu split 1/2, abu batu & agregat.
-            </p>
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-mono font-bold text-green-primary">04 &bull; BATUAN</span>
+              </div>
+              <h3 class="text-base font-black text-ink group-hover:text-green-primary transition-colors mb-1">
+                Agregat Pasir & Batu Split
+              </h3>
+              <p class="text-xs text-ink opacity-80 leading-relaxed">
+                Pasir cuci Bangka/Rangkas, batu split 1/2, abu batu & agregat.
+              </p>
+            </div>
           </div>
-          <div class="text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 mt-2">
-            <span>Lihat Produk</span>
-            <span>&rarr;</span>
+          <div class="p-4 pt-0">
+            <div class="pt-2 border-t border-border-base/70 text-xs font-bold text-green-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              <span>Lihat Produk</span>
+              <span>&rarr;</span>
+            </div>
           </div>
         </a>
       </div>

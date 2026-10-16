@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button.astro';
 import PhotoSlot from '@/components/ui/PhotoSlot.astro';
 import { getCollection } from 'astro:content';
 import { createWhatsAppUrl, createBoQMailtoUrl } from '@/utils/links';
+import { articlePhotoMap } from '@/utils/materialPhotos';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -54,8 +55,14 @@ const relatedArticles = (allArticles || [])
       <span>Estimasi: {article.data.readingTimeMinutes} Menit Baca</span>
     </div>
 
-    <!-- Hero Frame -->
-    <PhotoSlot aspectRatio="16/9" label={`Dokumentasi Teknis: ${article.data.title}`} class="mb-8" />
+    <!-- Hero Frame Foto Riil Lapangan -->
+    <PhotoSlot 
+      aspectRatio="16/9" 
+      label={`Dokumentasi Teknis: ${article.data.title}`} 
+      src={articlePhotoMap[article.slug] || '/images/foto-cor-slab.jpg'}
+      alt={`Dokumentasi Teknis Lapangan ${article.data.title}`}
+      class="mb-8" 
+    />
 
     <!-- Technical Note Box -->
     <div class="bg-[#FFF7CC] border-l-4 border-[#FFC700] p-4 rounded-[6px] mb-8 text-xs sm:text-sm text-ink leading-relaxed">
@@ -124,6 +131,14 @@ const relatedArticles = (allArticles || [])
               class="group border border-border-base rounded-[10px] bg-surface p-4 hover:border-[#12A150] hover:shadow-md transition-all flex flex-col justify-between block cursor-pointer"
             >
               <div>
+                <div class="h-28 rounded-[6px] overflow-hidden mb-3 border border-border-base">
+                  <img 
+                    src={articlePhotoMap[rel.slug] || '/images/foto-cor-slab.jpg'} 
+                    alt={rel.data.title}
+                    loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <div class="flex items-center justify-between text-[11px] font-mono text-gray-500 mb-2">
                   <span class="px-2 py-0.5 rounded bg-[#E5F6E8] text-[#0A4D2E] font-bold uppercase text-[10px]">
                     {rel.data.category}
